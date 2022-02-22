@@ -1,0 +1,132 @@
+.gameWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: #272727;
+}
+
+.playerOne {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 3;
+
+  width: 100%;
+  height: 36%;
+
+  background: black;
+  border-radius: 50px 50px 0px 0px;
+}
+.playerTwo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1;
+
+  width: 100%;
+  height: 36%;
+
+  background: black;
+  border-radius: 0px 0px 50px 50px;
+}
+.gameControls {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+  gap: 15%;
+
+  width: 100%;
+  height: 28%;
+}
+
+.pauseButton {
+  background: url("../resources/icons/music-pause-button-pair-of-lines-svgrepo-com.svg");
+  background-size: stretch;
+
+  height: 30%;
+  aspect-ratio: 1 / 1;
+
+  order: 2;
+}
+
+.exitButton {
+  background: url("../resources/icons/x-symbol-svgrepo-com.svg");
+
+  height: 30%;
+  aspect-ratio: 1 / 1;
+
+  order: 3;
+}
+.invisible {
+  opacity: 0;
+}
+.orange {
+  filter: invert(67%) sepia(72%) saturate(2056%) hue-rotate(357deg)
+    brightness(100%) contrast(106%);
+}
+.restartButton {
+  background: url("../resources/icons/debug-restart-svgrepo-com.svg");
+
+  height: 40%;
+  aspect-ratio: 1 / 1;
+
+  order: 1;
+}
+.playerOneTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 175px;
+  width: 20%;
+  height: 80%;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12vh;
+
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.playerTwoTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 20%;
+  height: 80%;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12vh;
+
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff;
+
+  transform: rotate(-180deg);
+}
+
+.delayTimer {
+  font-size: 12vh;
+  color: white;
+}

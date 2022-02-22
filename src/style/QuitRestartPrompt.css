@@ -1,0 +1,41 @@
+.quitRestartPrompt {
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  background: black;
+}
+
+.quitRestartPrompt__YES {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: green;
+  margin-top: 80px;
+  width: 50%;
+  font-size: calc(5vh + 1vw);
+}
+
+.quitRestartPrompt__NO {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: red;
+  margin-top: 80px;
+  width: 50%;
+
+  font-size: calc(5vh + 1vw);
+}
+
+.quitRestartPrompt__TEXT {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  font-size: 5.5vh;
+  color: white;
+}

@@ -1,0 +1,18 @@
+.delayTimerPlayerOne {
+  font-size: 12vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  color: orange;
+  text-decoration: underline;
+}
+
+.delayTimerPlayerTwo {
+  font-size: 12vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  color: orange;
+  transform: rotate(180deg);
+  text-decoration: underline;
+}

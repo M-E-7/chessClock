@@ -1,0 +1,32 @@
+.chessTVWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  /*  width: 360px;
+    height: 640px; */
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../resources/images/titleScreenBackground80.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.ChessTVScreen__BackButton {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12%;
+  max-width: 100px;
+  aspect-ratio: 1/1;
+  border: none;
+
+  background-color: black;
+
+  background: url("../resources/icons/back-arrow-svgrepo-com.svg");
+
+  background-size: stretch;
+  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+  filter: invert(100%);
+}
