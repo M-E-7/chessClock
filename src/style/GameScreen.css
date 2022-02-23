@@ -1,4 +1,4 @@
-.gameWrapper {
+.GameScreen__gameWrapper {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   background: #272727;
 }
 
-.playerOne {
+.GameScreen__playerOne {
   position: relative;
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@
   background: black;
   border-radius: 50px 50px 0px 0px;
 }
-.playerTwo {
+.GameScreen__playerTwo {
   position: relative;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@
   background: black;
   border-radius: 0px 0px 50px 50px;
 }
-.gameControls {
+.GameScreen__gameControls {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -50,7 +50,7 @@
   height: 28%;
 }
 
-.pauseButton {
+.GameScreen__pauseButton {
   background: url("../resources/icons/music-pause-button-pair-of-lines-svgrepo-com.svg");
   background-size: stretch;
 
@@ -60,7 +60,7 @@
   order: 2;
 }
 
-.exitButton {
+.GameScreen__exitButton {
   background: url("../resources/icons/x-symbol-svgrepo-com.svg");
 
   height: 30%;
@@ -68,14 +68,14 @@
 
   order: 3;
 }
-.invisible {
+.GameScreen__invisible {
   opacity: 0;
 }
-.orange {
+.GameScreen__orange {
   filter: invert(67%) sepia(72%) saturate(2056%) hue-rotate(357deg)
     brightness(100%) contrast(106%);
 }
-.restartButton {
+.GameScreen__restartButton {
   background: url("../resources/icons/debug-restart-svgrepo-com.svg");
 
   height: 40%;
@@ -83,7 +83,7 @@
 
   order: 1;
 }
-.playerOneTime {
+.GameScreen__playerOneTime {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +104,7 @@
   color: #ffffff;
 }
 
-.playerTwoTime {
+.GameScreen__playerTwoTime {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +126,7 @@
   transform: rotate(-180deg);
 }
 
-.delayTimer {
+.GameScreen__delayTimer {
   font-size: 12vh;
   color: white;
 }

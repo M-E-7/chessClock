@@ -4,7 +4,7 @@ import "../style/QuitRestartPrompt.css";
 const QuitPrompt = (props) => {
   console.log(props.dispatchGameState);
   return (
-    <div className="quitRestartPrompt">
+    <div className="quitRestartPrompt__Wrapper">
       <div
         className="quitRestartPrompt__YES"
         onClick={() => {

@@ -1,4 +1,4 @@
-.editWrapper {
+.EditScreen__Wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@
   -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
   filter: invert(100%);
 }
-.selectButton {
+.EditScreen__selectButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +68,7 @@
   );
 }
 
-.availableTimes {
+.EditScreen__availableTimes {
   order: 2;
   position: relative;
 
@@ -83,7 +83,7 @@
   overflow-y: scroll;
 }
 
-.timeOption {
+.TimeIterations__timeOption {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,7 +129,7 @@
   background: black;
 }
 
-.newTimeButton {
+.EditScreen__newTimeButton {
   display: flex;
   justify-content: center;
   align-items: center;

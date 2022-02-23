@@ -192,9 +192,9 @@ const TitleScreen = () => {
   return (
     <React.Fragment>
       {currentPage === "TitleScreen" && (
-        <div className="titleWrapper">
+        <div className="TitleScreen__titleWrapper">
           <button
-            className="startButton"
+            className="TitleScreen__startButton"
             onClick={mainStateHandlers.startGameHandler}
           >
             START
@@ -206,7 +206,7 @@ const TitleScreen = () => {
             Watch Chess TV!
           </button>
           <button
-            className="editButton"
+            className="TitleScreen__editButton"
             onClick={mainStateHandlers.editHandler}
           >
             EDIT

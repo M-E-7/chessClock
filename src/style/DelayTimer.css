@@ -1,4 +1,4 @@
-.delayTimerPlayerOne {
+.DelayTimer__PlayerOne {
   font-size: 12vh;
   font-family: Roboto;
   font-style: normal;
@@ -7,7 +7,7 @@
   text-decoration: underline;
 }
 
-.delayTimerPlayerTwo {
+.DelayTimer__PlayerTwo {
   font-size: 12vh;
   font-family: Roboto;
   font-style: normal;

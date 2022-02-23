@@ -4,18 +4,18 @@ import "../style/EditScreen.css";
 
 const EditScreen = (props) => {
   return (
-    <div className="editWrapper">
+    <div className="EditScreen__Wrapper">
       <button
         className="EditScreen__BackButton"
         onClick={props.handlers.titleScreenHandler}
       ></button>
       <button
-        className="selectButton"
+        className="EditScreen__selectButton"
         onClick={props.handlers.titleScreenHandler}
       >
         SELECT
       </button>
-      <div className="availableTimes">
+      <div className="EditScreen__availableTimes">
         {props.availableTimes.map((e) => (
           <TimeIterations
             id={e.id}
@@ -35,7 +35,7 @@ const EditScreen = (props) => {
       </div>
       <div className="EditScreen__ButtonWrapper">
         <button
-          className="newTimeButton"
+          className="EditScreen__newTimeButton"
           onClick={() => {
             props.handlers.newTimeHandler();
           }}

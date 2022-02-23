@@ -287,10 +287,10 @@ const GameScreen = (props) => {
   /* JSX RETURN ---------------------- */
   /* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
   return (
-    <div className="gameWrapper">
+    <div className="GameScreen__gameWrapper">
       <div
         style={{ background: gameState.backgroundPlayerOne }}
-        className="playerOne"
+        className="GameScreen__playerOne"
         onClick={() => {
           return gameState.playerActive === 2 || gameState.gameOver === 1
             ? null
@@ -303,17 +303,17 @@ const GameScreen = (props) => {
         gameState.gameTypeDelay &&
         gameState.firstDelayTick === true ? (
           <DelayTimer
-            className="delayTimerPlayerOne"
+            className="DelayTimer__PlayerOne"
             timeValue={timeoutDelay}
             gameState={gameState}
           ></DelayTimer>
         ) : (
-          <p className="playerOneTime">{playerOneTimeRender()}</p>
+          <p className="GameScreen__playerOneTime">{playerOneTimeRender()}</p>
         )}
       </div>
       <div
         style={{ background: gameState.backgroundPlayerTwo }}
-        className="playerTwo"
+        className="GameScreen__playerTwo"
         onClick={() => {
           if (gameState.playerActive === 1 || gameState.gameOver === 1) {
             return null;
@@ -328,12 +328,12 @@ const GameScreen = (props) => {
         gameState.gameTypeDelay &&
         gameState.firstDelayTick === true ? (
           <DelayTimer
-            className="delayTimerPlayerTwo"
+            className="DelayTimer__PlayerTwo"
             timeValue={timeoutDelay}
             gameState={gameState}
           ></DelayTimer>
         ) : (
-          <p className="playerTwoTime">{playerTwoTimeRender()}</p>
+          <p className="GameScreen__playerTwoTime">{playerTwoTimeRender()}</p>
         )}
       </div>
       {gameState.restartPromptVar === true && (
@@ -352,10 +352,12 @@ const GameScreen = (props) => {
           Quit game?
         </QuitRestartPrompt>
       )}
-      <div className="gameControls">
+      <div className="GameScreen__gameControls">
         <div
-          className={`pauseButton ${
-            gameState.pauseState === "pauseActionTrue" ? "orange" : ""
+          className={`GameScreen__pauseButton ${
+            gameState.pauseState === "pauseActionTrue"
+              ? "GameScreen__orange"
+              : ""
           }`}
           onClick={() => {
             if (gameState.gameOver === 1) {
@@ -370,13 +372,13 @@ const GameScreen = (props) => {
         gameState.gameOver === 1 ? (
           <React.Fragment>
             <div
-              className="exitButton"
+              className="GameScreen__exitButton"
               onClick={() => {
                 dispatchGameState({ type: "quitOnAction" });
               }}
             ></div>
             <div
-              className="restartButton"
+              className="GameScreen__restartButton"
               onClick={() => {
                 dispatchGameState({ type: "restartOnAction" });
               }}
@@ -384,8 +386,8 @@ const GameScreen = (props) => {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <div className="exitButton invisible"></div>
-            <div className="restartButton invisible"></div>
+            <div className="GameScreen__exitButton GameScreen__invisible"></div>
+            <div className="GameScreen__restartButton GameScreen__invisible"></div>
           </React.Fragment>
         )}
       </div>

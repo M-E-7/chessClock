@@ -52,7 +52,7 @@ const TimeIterations = (props) => {
         fontWeight: activeState ? "bold" : "normal",
         color: activeState ? "white" : "grey",
       }}
-      className="timeOption"
+      className="TimeIterations__timeOption"
       onClick={activeHandler}
     >
       <p className="TimeIterations__text">{`${props.tableName}`}</p>
