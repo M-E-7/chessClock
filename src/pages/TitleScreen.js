@@ -3,9 +3,12 @@ import "../style/TitleScreen.css";
 import GameScreen from "./GameScreen";
 import EditScreen from "./EditScreen";
 import NewTimePrompt from "./NewTimePrompt";
+
 import ChessTVScreen from "./ChessTVScreen";
+import { useHistory, Route } from "react-router-dom";
 
 const TitleScreen = () => {
+  let history = useHistory();
   const [availableTimes, setAvailableTimes] = useState(() => {
     if (localStorage.getItem("available_times") === null) {
       return [
@@ -22,15 +25,6 @@ const TitleScreen = () => {
     const value = localStorage.getItem("available_times");
     return JSON.parse(value);
   });
-
-  /*  const [availableTimes, setAvailableTimes] = useState([
-    {
-      id: "defaultID",
-      tableName: "TEST",
-      time: 1,
-      increment: 2,
-    },
-  ]); */
 
   const [newTimeTrigger, setNewTimeTrigger] = useState();
 
@@ -51,12 +45,7 @@ const TitleScreen = () => {
     }
     const value = localStorage.getItem("available_times");
     setAvailableTimes(JSON.parse(value));
-    ////////console.log(JSON.parse(value));
   }, [newTimeTrigger]);
-
-  /*  useEffect(() => {
-    localStorage.setItem("available_times", JSON.stringify(availableTimes));
-  }, [availableTimes]); */
 
   const [currentActiveID, setCurrentActiveID] = useState(() => {
     if (availableTimes === undefined || availableTimes.length === 0) {
@@ -75,22 +64,27 @@ const TitleScreen = () => {
     startGameHandler: () => {
       mainStateHandlers.activeTimeHandler(currentActiveID);
       setCurrentPage("GameScreen");
+      history.push("/game");
     },
 
     editHandler: () => {
       setCurrentPage("EditScreen");
+      history.push("/edit");
     },
 
     newTimeHandler: () => {
       setCurrentPage("NewTimeScreen");
+      history.push("/new");
     },
 
     titleScreenHandler: () => {
       setCurrentPage("TitleScreen");
+      history.push("/");
     },
 
     chessTVHandler: () => {
       setCurrentPage("ChessTVScreen");
+      history.push("/chessTV");
     },
 
     activeTimeHandler: (id) => {
@@ -158,7 +152,7 @@ const TitleScreen = () => {
           return [newObject, ...prevState];
         });
       }
-      /* mainStateHandlers.activeTimeHandler(newObject.id); */
+
       if (asymmetry) {
         const newObject = {
           id: id,
@@ -186,12 +180,9 @@ const TitleScreen = () => {
     },
   };
 
-  //////////console.log(availableTimes);
-  //////////console.log(currentActiveID);
-  /* //////////console.log(currentActiveTime); */
   return (
     <React.Fragment>
-      {currentPage === "TitleScreen" && (
+      <Route exact path="/">
         <div className="TitleScreen__titleWrapper">
           <button
             className="TitleScreen__startButton"
@@ -200,7 +191,7 @@ const TitleScreen = () => {
             START
           </button>
           <button
-            className="chessTVButton"
+            className="TitleScreen__chessTVButton"
             onClick={mainStateHandlers.chessTVHandler}
           >
             Watch Chess TV!
@@ -211,30 +202,33 @@ const TitleScreen = () => {
           >
             EDIT
           </button>
-          {/* <div className="settingsButton">SETTINGS</div> */}
         </div>
-      )}
-      {currentPage === "ChessTVScreen" && (
+      </Route>
+
+      <Route exact path="/chessTV">
         <ChessTVScreen handlers={mainStateHandlers} />
-      )}
-      {currentPage === "GameScreen" && (
+      </Route>
+      <Route exact path="/game">
         <GameScreen
           handlers={mainStateHandlers}
           currentActiveTime={currentActiveTime}
         />
-      )}
+      </Route>
 
-      {currentPage === "EditScreen" && (
+      <Route exact path="/edit">
         <EditScreen
           handlers={mainStateHandlers}
           availableTimes={availableTimes}
           currentActiveID={currentActiveID}
         />
-      )}
-
-      {currentPage === "NewTimeScreen" && (
-        <NewTimePrompt handlers={mainStateHandlers} />
-      )}
+      </Route>
+      <Route exact path="/new">
+        <NewTimePrompt
+          handlers={mainStateHandlers}
+          availableTimes={availableTimes}
+          currentActiveID={currentActiveID}
+        />
+      </Route>
     </React.Fragment>
   );
 };

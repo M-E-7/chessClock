@@ -62,7 +62,6 @@ const NewTimePrompt = (props) => {
     );
     props.handlers.editHandler();
     props.handlers.activeIDHandler(id);
-    /* props.handlers.activeIDHandler(); */
   };
 
   return (

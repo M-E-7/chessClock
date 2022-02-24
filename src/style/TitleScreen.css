@@ -89,7 +89,7 @@
   border-radius: 50px;
 }
 
-.chessTVButton {
+.TitleScreen__chessTVButton {
   display: flex;
   position: relative;
   justify-content: center;

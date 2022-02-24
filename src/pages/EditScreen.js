@@ -1,6 +1,8 @@
 import React from "react";
 import TimeIterations from "../components/TimeIterations";
 import "../style/EditScreen.css";
+import NewTimePrompt from "./NewTimePrompt";
+import { Route } from "react-router-dom";
 
 const EditScreen = (props) => {
   return (
