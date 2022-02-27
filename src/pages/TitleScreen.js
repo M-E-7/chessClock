@@ -184,24 +184,35 @@ const TitleScreen = () => {
     <React.Fragment>
       <Route exact path="/">
         <div className="TitleScreen__titleWrapper">
-          <button
-            className="TitleScreen__startButton"
-            onClick={mainStateHandlers.startGameHandler}
-          >
-            START
-          </button>
-          <button
-            className="TitleScreen__chessTVButton"
-            onClick={mainStateHandlers.chessTVHandler}
-          >
-            Watch Chess TV!
-          </button>
-          <button
-            className="TitleScreen__editButton"
-            onClick={mainStateHandlers.editHandler}
-          >
-            EDIT
-          </button>
+          <div className="Logo" />
+          <div className="TitleScreen__TimeWrapper">
+            <div className="TitleScreen__TimeValue">
+              {currentActiveTime.time.toString(2)}
+            </div>
+            <div className="TitleScreen__IncrementValue">
+              +{currentActiveTime.increment.toString(2)}
+            </div>
+          </div>
+          <div className="TitleScreen__buttonWrapper">
+            <button
+              className="TitleScreen__startButton"
+              onClick={mainStateHandlers.startGameHandler}
+            >
+              START
+            </button>
+            <button
+              className="TitleScreen__chessTVButton"
+              onClick={mainStateHandlers.chessTVHandler}
+            >
+              <p className="TitleScreen__chessTVButton__text">watch chess TV</p>
+            </button>
+            <button
+              className="TitleScreen__editButton"
+              onClick={mainStateHandlers.editHandler}
+            >
+              EDIT
+            </button>
+          </div>
         </div>
       </Route>
 
