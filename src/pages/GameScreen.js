@@ -6,6 +6,7 @@ import "../style/GameScreen.css";
 import clickSound from "../resources/sounds/clickSound.wav";
 
 import { useWakeLock } from "react-screen-wake-lock";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 const gameStateReducer = (state, action) => {
   switch (action.type) {
@@ -31,13 +32,13 @@ const gameStateReducer = (state, action) => {
         ...state,
         pauseState: "pauseActionTrue",
         playerActive: 0,
-        backgroundPlayerTwo: "orange",
-        backgroundPlayerOne: "orange",
+        activePlayerTwoStyle: state.inactivePlayerState,
+        activePlayerOneStyle: state.inactivePlayerState,
         renderForcer: state.renderForcer + 1,
 
         lastPlayerStateBuffer: state.playerActive,
-        backgroundPlayerOneBuffer: state.backgroundPlayerOne,
-        backgroundPlayerTwoBuffer: state.backgroundPlayerTwo,
+        activePlayerOneStyleBuffer: state.activePlayerOneStyle,
+        activePlayerTwoStyleBuffer: state.activePlayerTwoStyle,
       };
     case "pauseActionTrue":
       return {
@@ -45,8 +46,8 @@ const gameStateReducer = (state, action) => {
         pauseState: "pauseActionFalse",
         renderForcer: state.renderForcer + 1,
         playerActive: state.lastPlayerStateBuffer,
-        backgroundPlayerOne: state.backgroundPlayerOneBuffer,
-        backgroundPlayerTwo: state.backgroundPlayerTwoBuffer,
+        activePlayerOneStyle: state.activePlayerOneStyleBuffer,
+        activePlayerTwoStyle: state.activePlayerTwoStyleBuffer,
       };
     case "quitOnAction":
       return {
@@ -77,8 +78,8 @@ const gameStateReducer = (state, action) => {
         playerTwoTime: state.startingPlayerTwoTime,
         renderForcer: state.renderForcer + 1,
         playerActive: 0,
-        backgroundPlayerTwo: "black",
-        backgroundPlayerOne: "black",
+        activePlayerTwoStyle: state.inactivePlayerState,
+        activePlayerOneStyle: state.inactivePlayerState,
         gameOver: 0,
         playerWin: 0,
       };
@@ -92,8 +93,8 @@ const gameStateReducer = (state, action) => {
           state.playerTwoTimeIncrement !== 0
             ? state.playerTwoTime + state.incrementValuePlayerTwo()
             : state.playerTwoTime,
-        backgroundPlayerTwo: "black",
-        backgroundPlayerOne: "green",
+        activePlayerTwoStyle: state.inactivePlayerState,
+        activePlayerOneStyle: state.activePlayerState,
         firstDelayTick: true,
         restartPromptVar: false,
         quitPromptVar: false,
@@ -108,8 +109,8 @@ const gameStateReducer = (state, action) => {
           state.playerOneTimeIncrement !== 0
             ? state.playerOneTime + state.incrementValuePlayerOne()
             : state.playerOneTime,
-        backgroundPlayerOne: "black",
-        backgroundPlayerTwo: "green",
+        activePlayerOneStyle: state.inactivePlayerState,
+        activePlayerTwoStyle: state.activePlayerState,
         firstDelayTick: true,
         restartPromptVar: false,
         quitPromptVar: false,
@@ -117,8 +118,8 @@ const gameStateReducer = (state, action) => {
     case "playerOneLossAction":
       return {
         ...state,
-        backgroundPlayerTwo: "green",
-        backgroundPlayerOne: "red",
+        activePlayerTwoStyle: { color: "green", ...state.activePlayerState },
+        activePlayerOneStyle: { color: "red", ...state.inactivePlayerState },
         playerActive: 0,
         gameOver: 1,
         playerWin: 2,
@@ -126,8 +127,8 @@ const gameStateReducer = (state, action) => {
     case "playerTwoLossAction":
       return {
         ...state,
-        backgroundPlayerOne: "green",
-        backgroundPlayerTwo: "red",
+        activePlayerOneStyle: { color: "green", ...state.activePlayerState },
+        activePlayerTwoStyle: { color: "red", ...state.inactivePlayerState },
         playerActive: 0,
         gameOver: 1,
         playerWin: 1,
@@ -188,11 +189,37 @@ const GameScreen = (props) => {
     firstDelayTick: true,
     pauseState: "pauseActionFalse",
     lastPlayerStateBuffer: null,
-    backgroundPlayerOneBuffer: "",
-    backgroundPlayerTwoBuffer: "",
-    backgroundPlayerOne: "black",
-    backgroundPlayerTwo: "black",
+    activePlayerOneStyleBuffer: "",
+    activePlayerTwoStyleBuffer: "",
+    activePlayerOneStyle: {
+      color: "grey",
+      opacity: "1",
+      border: "none",
+      boxSizing: "border-box",
+      boxShadow: "none",
+    },
+    activePlayerTwoStyle: {
+      color: "grey",
+      opacity: "1",
+      border: "none",
+      boxSizing: "border-box",
+      boxShadow: "none",
+    },
     gameOver: 0,
+    activePlayerState: {
+      color: "green",
+      opacity: "1",
+      border: "1px solid rgba(248, 168, 240, 0.55)",
+      boxSizing: "border-box",
+      boxShadow: "0px 0px 13px 10px rgba(162, 60, 210, 0.35)",
+    },
+    inactivePlayerState: {
+      color: "red",
+      opacity: "0.5",
+      border: "none",
+      boxSizing: "border-box",
+      boxShadow: "none",
+    },
     exitToTitleScreen: () => {
       props.handlers.titleScreenHandler();
     },
@@ -289,8 +316,7 @@ const GameScreen = (props) => {
   return (
     <div className="GameScreen__gameWrapper">
       <div
-        style={{ background: gameState.backgroundPlayerOne }}
-        className="GameScreen__playerOne"
+        className="GameScreen__playerOneWrapper"
         onClick={() => {
           return gameState.playerActive === 2 || gameState.gameOver === 1
             ? null
@@ -299,21 +325,25 @@ const GameScreen = (props) => {
               dispatchGameState({ type: "playerOneAction" }));
         }}
       >
-        {gameState.playerActive === 1 &&
-        gameState.gameTypeDelay &&
-        gameState.firstDelayTick === true ? (
-          <DelayTimer
-            className="DelayTimer__PlayerOne"
-            timeValue={timeoutDelay}
-            gameState={gameState}
-          ></DelayTimer>
-        ) : (
-          <p className="GameScreen__playerOneTime">{playerOneTimeRender()}</p>
-        )}
+        <div
+          style={gameState.activePlayerOneStyle}
+          className="GameScreen__playerOne"
+        >
+          {gameState.playerActive === 1 &&
+          gameState.gameTypeDelay &&
+          gameState.firstDelayTick === true ? (
+            <DelayTimer
+              className="DelayTimer__PlayerOne"
+              timeValue={timeoutDelay}
+              gameState={gameState}
+            ></DelayTimer>
+          ) : (
+            <p className="GameScreen__playerOneTime">{playerOneTimeRender()}</p>
+          )}
+        </div>
       </div>
       <div
-        style={{ background: gameState.backgroundPlayerTwo }}
-        className="GameScreen__playerTwo"
+        className="GameScreen__playerTwoWrapper"
         onClick={() => {
           if (gameState.playerActive === 1 || gameState.gameOver === 1) {
             return null;
@@ -324,17 +354,22 @@ const GameScreen = (props) => {
           }
         }}
       >
-        {gameState.playerActive === 2 &&
-        gameState.gameTypeDelay &&
-        gameState.firstDelayTick === true ? (
-          <DelayTimer
-            className="DelayTimer__PlayerTwo"
-            timeValue={timeoutDelay}
-            gameState={gameState}
-          ></DelayTimer>
-        ) : (
-          <p className="GameScreen__playerTwoTime">{playerTwoTimeRender()}</p>
-        )}
+        <div
+          style={gameState.activePlayerTwoStyle}
+          className="GameScreen__playerTwo"
+        >
+          {gameState.playerActive === 2 &&
+          gameState.gameTypeDelay &&
+          gameState.firstDelayTick === true ? (
+            <DelayTimer
+              className="DelayTimer__PlayerTwo"
+              timeValue={timeoutDelay}
+              gameState={gameState}
+            ></DelayTimer>
+          ) : (
+            <p className="GameScreen__playerTwoTime">{playerTwoTimeRender()}</p>
+          )}
+        </div>
       </div>
       {gameState.restartPromptVar === true && (
         <QuitRestartPrompt

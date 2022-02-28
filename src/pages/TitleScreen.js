@@ -103,6 +103,9 @@ const TitleScreen = () => {
     deleteTimeHandler: (toDeleteID) => {
       console.log(toDeleteID + " to delete id");
       const updatedTimes = availableTimes.filter((e) => e.id !== toDeleteID);
+      if (updatedTimes.length === 0) {
+        return;
+      }
       localStorage.removeItem("available_times");
       localStorage.setItem("available_times", JSON.stringify(updatedTimes));
       if (currentActiveID === toDeleteID) {
@@ -187,10 +190,11 @@ const TitleScreen = () => {
           <div className="Logo" />
           <div className="TitleScreen__TimeWrapper">
             <div className="TitleScreen__TimeValue">
-              {currentActiveTime.time.toString(2)}
+              {currentActiveTime.time.toString(3)}
             </div>
             <div className="TitleScreen__IncrementValue">
-              +{currentActiveTime.increment.toString(2)}
+              +{currentActiveTime.increment.toString(3)}
+              {console.log(currentActiveTime.increment.toString(3))}
             </div>
           </div>
           <div className="TitleScreen__buttonWrapper">

@@ -8,9 +8,13 @@
     height: 640px; */
   width: 100vw;
   height: 100vh;
-  background-image: url("../resources/images/titleScreenBackground80.jpg");
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(
+    180deg,
+    #090909 0%,
+    #1a1a1a 33.85%,
+    #252525 66.67%,
+    #333333 100%
+  );
 }
 
 .ChessTVScreen__BackButton {
