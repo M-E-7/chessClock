@@ -23,3 +23,17 @@ code {
     url("./resources/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
 }
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("./resources/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("./resources/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+}

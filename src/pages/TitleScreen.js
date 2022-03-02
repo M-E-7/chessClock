@@ -188,16 +188,17 @@ const TitleScreen = () => {
       <Route exact path="/">
         <div className="TitleScreen__titleWrapper">
           <div className="Logo" />
-          <div className="TitleScreen__TimeWrapper">
-            <div className="TitleScreen__TimeValue">
-              {currentActiveTime.time.toString(3)}
+          <div className="TitleScreen__mainGridWrapper">
+            <div className="TitleScreen__TimeWrapper">
+              <div className="TitleScreen__TimeValue">
+                {currentActiveTime.time.toString(3)}
+              </div>
+              <div className="TitleScreen__IncrementValue">
+                +{currentActiveTime.increment.toString(3)}
+                {console.log(currentActiveTime.increment.toString(3))}
+              </div>
             </div>
-            <div className="TitleScreen__IncrementValue">
-              +{currentActiveTime.increment.toString(3)}
-              {console.log(currentActiveTime.increment.toString(3))}
-            </div>
-          </div>
-          <div className="TitleScreen__buttonWrapper">
+
             <button
               className="TitleScreen__startButton"
               onClick={mainStateHandlers.startGameHandler}

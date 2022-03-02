@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./resources/fonts/Montserrat-Regular.ttf";
+import "./resources/fonts/Montserrat-Bold.ttf";
+import "./resources/fonts/Montserrat-SemiBold.ttf";
 
 ReactDOM.render(
   <BrowserRouter>
