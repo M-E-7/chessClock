@@ -1,16 +1,55 @@
+@media only screen and (min-width: 1240px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
 .EditScreen__Wrapper {
-  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5%;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url("../resources/images/titleScreenBackground80.jpg");
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(
+    180deg,
+    #090909 0%,
+    #1a1a1a 33.85%,
+    #252525 66.67%,
+    #333333 100%
+  );
 }
+
+.EditScreen__mainGridWrapper {
+  display: grid;
+
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  grid-gap: 0px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+  color: white;
+  font-size: calc(12px + 1.8vh);
+
+  outline: 1px red dotted;
+}
+
+/* .EditScreen__innerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+} */
 .EditScreen__BackButton {
   position: absolute;
   left: 0;
@@ -28,59 +67,92 @@
   -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
   filter: invert(100%);
 }
+
+.EditScreen__ElementsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  grid-row-start: 4;
+  grid-row-end: 14;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  min-width: 0%;
+  min-height: 0%;
+
+  font-size: calc(1vw + 12px);
+  font-weight: bold;
+}
+
+.EditScreen__ButtonWrapper {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+  top: 30%;
+
+  height: 100%;
+
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  min-width: 0%;
+  min-height: 0%;
+
+  font-size: 2.5vh;
+}
+
 .EditScreen__selectButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  order: 1;
-  border: none;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 28px;
-  line-height: 40px;
-  color: #ffffff;
   text-align: center;
-  position: relative;
-  width: 65%;
-  height: 6.5%;
-  border-radius: 50px;
 
-  background: linear-gradient(
-    183.14deg,
-    #000000 -31.67%,
-    #000000 -18.3%,
-    #000000 -4.92%,
-    #010101 8.46%,
-    #030303 21.84%,
-    #060606 35.22%,
-    #0d0d0d 48.6%,
-    #191919 61.98%,
-    #2a2a2a 75.36%,
-    #3b3b3b 88.74%,
-    #474747 102.11%,
-    #4e4e4e 115.49%,
-    #515151 128.87%,
-    #535353 142.25%,
-    #545454 155.63%,
-    #545454 169.01%,
-    #545454 182.39%
-  );
+  grid-row-start: 17;
+  grid-row-end: 19;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  min-width: 0%;
+  min-height: 0%;
+
+  font-size: calc(1vw + 12px);
+  font-weight: bold;
+
+  background: linear-gradient(0deg, #824ec6, #824ec6), #562786;
+  box-shadow: 1px 4px 11px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border: none;
+
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bold;
 }
 
 .EditScreen__availableTimes {
-  order: 2;
-  position: relative;
+  display: grid;
+  justify-content: space-between;
+  align-content: space-between;
+  font-size: calc(9px + 0.3vw);
 
-  width: 80%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 7%;
 
-  height: 55%;
+  grid-row-start: 6;
+  grid-row-end: 15;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  min-width: 0%;
+  min-height: 0%;
 
-  background: black;
-  display: flex;
-  flex-direction: column;
+  max-width: 600px;
+
+  background: transparent;
 
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .TimeIterations__timeOption {
@@ -88,62 +160,61 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-style: solid;
-  font-family: Roboto;
+
+  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 1rem;
   color: white;
-  text-align: center;
-  margin: 0px;
+
+  outline-offset: -5px;
+  border-radius: 15px;
+
+  aspect-ratio: 1/1;
+
+  font-size: 1em;
 }
 
 .TimeIterations__text {
   margin: 0.1rem;
 }
 
-.EditScreen__ButtonWrapper {
-  display: flex;
-  justify-content: space-around;
-  order: 3;
-  height: 6.5%;
-  width: 80%;
-}
-
 .EditScreen__DeleteButton {
-  order: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: white;
   position: relative;
-  width: 40%;
-  height: 100%;
-  border-radius: 50px;
-  font-family: Roboto;
+  width: 25%;
+
+  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 28px;
-  border: none;
-  color: red;
+  font-size: 0.8em;
 
-  background: black;
+  border: none;
+  border: 1px solid #824ec6;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 .EditScreen__newTimeButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  order: 2;
-  color: green;
+
+  color: white;
   position: relative;
-  width: 40%;
-  height: 100%;
-  border-radius: 50px;
-  font-family: Roboto;
+  width: 25%;
+
+  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 28px;
+  font-size: 1em;
   border: none;
 
-  background: black;
+  background: #824ec6;
+  border-radius: 5px;
+  font-weight: bold;
 }

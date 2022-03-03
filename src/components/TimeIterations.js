@@ -48,8 +48,11 @@ const TimeIterations = (props) => {
   return (
     <div
       style={{
-        borderColor: activeState ? "white" : "grey",
+        outline: activeState
+          ? "3px solid rgba(167, 126, 220, 0.75)"
+          : "1px solid grey",
         fontWeight: activeState ? "bold" : "normal",
+        fontSize: activeState ? "1.1em" : "1em",
         color: activeState ? "white" : "grey",
       }}
       className="TimeIterations__timeOption"
