@@ -47,6 +47,7 @@ const TimeIterations = (props) => {
   };
   return (
     <div
+      unselectable="on"
       style={{
         outline: activeState
           ? "3px solid rgba(167, 126, 220, 0.75)"

@@ -8,11 +8,12 @@ const EditScreen = (props) => {
   return (
     <div className="EditScreen__Wrapper">
       <div className="Logo" />
-      <button
-        className="EditScreen__BackButton"
-        onClick={props.handlers.titleScreenHandler}
-      />
+
       <div className="EditScreen__mainGridWrapper">
+        <button
+          className="EditScreen__BackButton"
+          onClick={props.handlers.titleScreenHandler}
+        />
         <div className="EditScreen__ButtonWrapper">
           <button
             className="EditScreen__newTimeButton"

@@ -11,12 +11,28 @@ const NewTimePrompt = (props) => {
   const [gameTypeIncrement, setGameTypeIncrement] = useState(true);
   const [gameTypeDelay, setGameTypeDelay] = useState(false);
 
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
   const tableNameInputHandler = (e) => {
     setTableName(e.target.value);
   };
 
   const setTimeHandler = (e) => {
     setTime(e.target.value);
+  };
+
+  const setHoursHandler = (e) => {
+    setHours(e.target.value);
+  };
+
+  const setMinutesHandler = (e) => {
+    setMinutes(e.target.value);
+  };
+
+  const setSecondsHandler = (e) => {
+    setSeconds(e.target.value);
   };
 
   const setIncrementHandler = (e) => {
@@ -65,17 +81,20 @@ const NewTimePrompt = (props) => {
   };
 
   return (
-    <div>
-      <button
-        className="EditScreen__BackButton"
-        onClick={props.handlers.editHandler}
-      ></button>
+    <div className="NewTimePrompt__Wrapper">
+      <div className="Logo" />
+
       <form
-        className="NewTimePrompt__FormWrapper"
-        autocomplete="off"
+        className="NewTimePrompt__MainGridWrapper"
+        autoComplete="off"
         onSubmit={submitHandler}
+        id="mainForm"
       >
-        <label className="NewTimePrompt__LabelTableName" htmlFor="tableName">
+        <button
+          className="EditScreen__BackButton"
+          onClick={props.handlers.editHandler}
+        />
+        {/*  <label className="NewTimePrompt__LabelTableName" htmlFor="tableName">
           Table Name
         </label>
         <input
@@ -84,80 +103,141 @@ const NewTimePrompt = (props) => {
           type="text"
           onChange={tableNameInputHandler}
           value={tableName}
-        />
-        <label htmlFor="Time">Time (Seconds)</label>
-        <input
-          className="NewTimePrompt__Time1 NewTimePrompt__InputElement"
-          id="Time"
-          type="number"
-          min="1"
-          onChange={setTimeHandler}
-          value={time}
-        />
-        <label htmlFor="Increment">
-          {gameTypeIncrement && "Increment"}
-          {gameTypeDelay && "Delay"}
-        </label>
-        <input
-          className="NewTimePrompt__Increment1 NewTimePrompt__InputElement"
-          id="Increment"
-          type="number"
-          min="0"
-          onChange={setIncrementHandler}
-          value={increment}
-        />
-
-        <label htmlFor="AsymmetryBox">Asymmetry</label>
-        <input
-          className="NewTimePrompt__assymetryCheckbox"
-          id="AsymmetryBox"
-          type="checkbox"
-          onChange={setAsymmetryHandler}
-          value={asymmetry}
-        />
-        <div className="NewTimePrompt__GameTypeWrapper">
-          <label htmlFor="IncrementBox">Increment</label>
+        /> */}
+        {/*   <label htmlFor="Time" className="NewTimePrompt__TimeLabel">HOURS / MINUTES / SECONDS</label> */}
+        <div className="NewTimePrompt__TimeValuesWrapper PlayerOne">
+          <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+            HOURS
+          </label>
           <input
-            className="NewTimePrompt__IncrementGameTypeCheckbox"
+            className="NewTimePrompt__TimeInputBox"
+            id="hours"
+            type="number"
+            min="1"
+            onChange={setHoursHandler}
+            value={hours}
+          />
+          <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+            MINUTES
+          </label>
+          <input
+            className="NewTimePrompt__TimeInputBox"
+            id="minutes"
+            type="number"
+            min="1"
+            onChange={setMinutesHandler}
+            value={minutes}
+          />
+          <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+            SECONDS
+          </label>
+          <input
+            className="NewTimePrompt__TimeInputBox"
+            id="seconds"
+            type="number"
+            min="1"
+            onChange={setTimeHandler}
+            value={time}
+          />
+        </div>
+        <div className="NewTimePrompt__GameModifiersWrapper">
+          <input
+            className="NewTimePrompt__ValueInputBox ValueInput"
+            id="Increment"
+            type="number"
+            min="0"
+            onChange={setIncrementHandler}
+            value={increment}
+          />
+
+          <input
+            className="NewTimePrompt__GameType__Checkbox IncrementCheckbox"
             id="IncrementBox"
             type="checkbox"
             onChange={setGameTypeIncrementHandler}
             checked={gameTypeIncrement}
           />
+          <label
+            htmlFor="IncrementBox"
+            className="NewTimePrompt__GameType__Label IncrementLabel"
+          >
+            Increment
+          </label>
 
-          <label htmlFor="DelayBox">Delay</label>
           <input
-            className="NewTimePrompt__DelayGameTypeCheckbox"
+            className="NewTimePrompt__GameType__Checkbox DelayCheckbox"
             id="DelayBox"
             type="checkbox"
             onChange={setGameTypeDelayHandler}
             checked={gameTypeDelay}
           />
+          <label
+            htmlFor="DelayBox"
+            className="NewTimePrompt__GameType__Label DelayLabel"
+          >
+            Delay
+          </label>
+
+          <input
+            className="NewTimePrompt__GameType__Checkbox AsymmetryCheckbox"
+            id="AsymmetryBox"
+            type="checkbox"
+            onChange={setAsymmetryHandler}
+            value={asymmetry}
+          />
+          <label
+            htmlFor="AsymmetryBox"
+            className="NewTimePrompt__GameType__Label AsymmetryLabel"
+          >
+            Asymmetry
+          </label>
+
+          <label
+            htmlFor="Increment"
+            className="NewTimePrompt__GameType__Label ValueLabel"
+          >
+            {gameTypeIncrement && "Increment"}
+            {gameTypeDelay && "Delay"}
+          </label>
         </div>
 
         {asymmetry === true && (
           <React.Fragment>
-            <label htmlFor="Time2">Time</label>
-            <input
-              className="NewTimePrompt__Time2 NewTimePrompt__InputElement"
-              id="Time2"
-              type="number"
-              min="1"
-              onChange={setTimeHandler2}
-              value={time2}
-            />
-            <label htmlFor="Increment2">
-              {gameTypeIncrement && "Increment"}
-              {gameTypeDelay && "Delay"}
-            </label>
-            <input
-              className="NewTimePrompt__Increment2 NewTimePrompt__InputElement"
-              id="Increment2"
-              type="number"
-              min="0"
-              onChange={setIncrementHandler2}
-              value={increment2}
-            />{" "}
+            <div className="NewTimePrompt__TimeValuesWrapper PlayerTwo">
+              <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+                HOURS
+              </label>
+              <input
+                className="NewTimePrompt__TimeInputBox"
+                id="hours"
+                type="number"
+                min="1"
+                onChange={setHoursHandler}
+                value={hours}
+              />
+              <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+                MINUTES
+              </label>
+              <input
+                className="NewTimePrompt__TimeInputBox"
+                id="minutes"
+                type="number"
+                min="1"
+                onChange={setMinutesHandler}
+                value={minutes}
+              />
+              <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+                SECONDS
+              </label>
+              <input
+                className="NewTimePrompt__TimeInputBox"
+                id="seconds"
+                type="number"
+                min="1"
+                onChange={setTimeHandler}
+                value={time}
+              />
+            </div>
           </React.Fragment>
         )}
         <button className="NewTimePrompt__Submit" type="submit">

@@ -84,7 +84,7 @@
   background: url("../resources/icons/music-pause-button-pair-of-lines-svgrepo-com.svg");
   background-size: stretch;
 
-  height: 30%;
+  height: 50%;
   aspect-ratio: 1 / 1;
 
   order: 2;
@@ -93,7 +93,7 @@
 .GameScreen__exitButton {
   background: url("../resources/icons/x-symbol-svgrepo-com.svg");
 
-  height: 30%;
+  height: 50%;
   aspect-ratio: 1 / 1;
 
   order: 3;
@@ -108,7 +108,7 @@
 .GameScreen__restartButton {
   background: url("../resources/icons/debug-restart-svgrepo-com.svg");
 
-  height: 40%;
+  height: 50%;
   aspect-ratio: 1 / 1;
 
   order: 1;

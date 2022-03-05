@@ -8,101 +8,252 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-body {
-  background-image: url("../resources/images/titleScreenBackground80.jpg");
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-}
-
-.NewTimePrompt__FormWrapper {
+.NewTimePrompt__Wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
+  position: absolute;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  background: linear-gradient(
+    180deg,
+    #090909 0%,
+    #1a1a1a 33.85%,
+    #252525 66.67%,
+    #333333 100%
+  );
+}
+
+.NewTimePrompt__MainGridWrapper {
+  display: grid;
+
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  grid-gap: 0px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(24, 1fr);
   color: white;
   font-size: calc(12px + 1.8vh);
-}
-.NewTimePrompt__LabelTableName {
-  margin-top: 2%;
-}
-.NewTimePrompt__TableName {
-  margin-bottom: 2%;
-}
-.NewTimePrompt__InputElement {
-  text-align: center;
-  font-size: calc(18px + 1.8vh);
-  color: white;
-  width: 30%;
-  min-width: 250px;
-  max-width: 800px;
-  height: 6%;
-  background: linear-gradient(
-    183.14deg,
-    #000000 -31.67%,
-    #000000 -18.3%,
-    #000000 -4.92%,
-    #010101 8.46%,
-    #030303 21.84%,
-    #060606 35.22%,
-    #0d0d0d 48.6%,
-    #191919 61.98%,
-    #2a2a2a 75.36%,
-    #3b3b3b 88.74%,
-    #474747 102.11%,
-    #4e4e4e 115.49%,
-    #515151 128.87%,
-    #535353 142.25%,
-    #545454 155.63%,
-    #545454 169.01%,
-    #545454 182.39%
-  );
-  border-radius: 50px;
-  border: none;
+
+  outline: 1px red dotted;
 }
 
-.NewTimePrompt__GameTypeWrapper {
+.NewTimePrompt__TimeValuesWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-items: space-between;
+  flex-wrap: wrap;
   align-items: center;
+
+  min-width: 0%;
+  min-height: 0%;
+
+  background: transparent;
+
+  border: none;
+
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bold;
+}
+
+.PlayerOne {
+  grid-row-start: 4;
+  grid-row-end: 7;
+  grid-column-start: 2;
+  grid-column-end: 12;
+}
+
+.PlayerTwo {
+  grid-row-start: 12;
+  grid-row-end: 15;
+  grid-column-start: 2;
+  grid-column-end: 12;
 }
 
 .NewTimePrompt__Submit {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(16px + 1.8vh);
-  color: white;
-  width: 15%;
-  min-width: 150px;
-  max-width: 500px;
-  height: 8%;
-  background: linear-gradient(
-    183.14deg,
-    #000000 -31.67%,
-    #000000 -18.3%,
-    #000000 -4.92%,
-    #010101 8.46%,
-    #030303 21.84%,
-    #060606 35.22%,
-    #0d0d0d 48.6%,
-    #191919 61.98%,
-    #2a2a2a 75.36%,
-    #3b3b3b 88.74%,
-    #474747 102.11%,
-    #4e4e4e 115.49%,
-    #515151 128.87%,
-    #535353 142.25%,
-    #545454 155.63%,
-    #545454 169.01%,
-    #545454 182.39%
-  );
-  border-radius: 50px;
+
+  grid-row-start: 17;
+  grid-row-end: 19;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  min-width: 0%;
+  min-height: 0%;
+
+  background: linear-gradient(0deg, #824ec6, #824ec6), #562786;
+  box-shadow: 1px 4px 11px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
   border: none;
-  margin-top: auto;
-  margin-bottom: 3%;
+
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bold;
+}
+
+.NewTimePrompt__TimeLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 25%;
+  height: 40%;
+
+  font-size: calc(0.8vw + 12px);
+  font-weight: bold;
+}
+
+.NewTimePrompt__TimeInputBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 25%;
+  height: 45%;
+
+  background: linear-gradient(0deg, #473263, #473263), #c4c4c4;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bold;
+}
+
+.NewTimePrompt__GameModifiersWrapper {
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  grid-row-start: 8;
+  grid-row-end: 12;
+  grid-column-start: 2;
+  grid-column-end: 12;
+
+  min-width: 0%;
+  min-height: 0%;
+
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bold;
+}
+
+.NewTimePrompt__GameType__Checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  min-width: 0%;
+  min-height: 0%;
+
+  background: linear-gradient(0deg, #473263, #473263), #c4c4c4;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+}
+
+.IncrementCheckbox {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.DelayCheckbox {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.AsymmetryCheckbox {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.NewTimePrompt__GameType__Label {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+
+  min-width: 0%;
+  min-height: 0%;
+
+  font-size: calc(0.8vw + 12px);
+  font-weight: bold;
+}
+
+.IncrementLabel {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.DelayLabel {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.AsymmetryLabel {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.ValueLabel {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 5;
+  grid-column-end: 7;
+  justify-self: center;
+}
+
+.NewTimePrompt__ValueInputBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  min-width: 0%;
+  min-height: 0%;
+
+  background: linear-gradient(0deg, #473263, #473263), #c4c4c4;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bold;
+}
+
+.ValueInput {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 5;
+  grid-column-end: 7;
 }
