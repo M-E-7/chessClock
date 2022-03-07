@@ -59,6 +59,8 @@ const TitleScreen = () => {
   );
 
   const [currentPage, setCurrentPage] = useState("TitleScreen");
+  const [timeVisual, setTimeVisual] = useState("");
+  const [timeVisual2, setTimeVisual2] = useState("");
 
   const mainStateHandlers = {
     startGameHandler: () => {
@@ -176,7 +178,6 @@ const TitleScreen = () => {
             "available_times",
             JSON.stringify([newObject, ...prevState])
           );
-
           return [newObject, ...prevState];
         });
       }
@@ -191,11 +192,12 @@ const TitleScreen = () => {
           <div className="TitleScreen__mainGridWrapper">
             <div className="TitleScreen__TimeWrapper">
               <div className="TitleScreen__TimeValue">
-                {currentActiveTime.time.toString(3)}
+                {currentActiveTime.time.toString()}
+                {console.log(currentActiveTime.time)}
+                {console.log(currentActiveTime.time.toString())}
               </div>
               <div className="TitleScreen__IncrementValue">
-                +{currentActiveTime.increment.toString(3)}
-                {console.log(currentActiveTime.increment.toString(3))}
+                +{currentActiveTime.increment.toString()}
               </div>
             </div>
 

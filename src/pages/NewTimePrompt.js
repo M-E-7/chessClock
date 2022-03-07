@@ -3,24 +3,24 @@ import "../style/NewTimePrompt.css";
 
 const NewTimePrompt = (props) => {
   const [tableName, setTableName] = useState("");
-  const [time, setTime] = useState(1);
-  const [increment, setIncrement] = useState(0);
-  const [time2, setTime2] = useState(1);
-  const [increment2, setIncrement2] = useState(0);
-  const [asymmetry, setAsymmetry] = useState(false);
-  const [gameTypeIncrement, setGameTypeIncrement] = useState(true);
-  const [gameTypeDelay, setGameTypeDelay] = useState(false);
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [increment, setIncrement] = useState(0);
+
+  const [hours2, setHours2] = useState(0);
+  const [minutes2, setMinutes2] = useState(0);
+  const [seconds2, setSeconds2] = useState(0);
+  const [increment2, setIncrement2] = useState(0);
+
+  const [asymmetry, setAsymmetry] = useState(false);
+
+  const [gameTypeIncrement, setGameTypeIncrement] = useState(true);
+  const [gameTypeDelay, setGameTypeDelay] = useState(false);
 
   const tableNameInputHandler = (e) => {
     setTableName(e.target.value);
-  };
-
-  const setTimeHandler = (e) => {
-    setTime(e.target.value);
   };
 
   const setHoursHandler = (e) => {
@@ -35,12 +35,21 @@ const NewTimePrompt = (props) => {
     setSeconds(e.target.value);
   };
 
-  const setIncrementHandler = (e) => {
-    setIncrement(e.target.value);
+  const setHoursHandler2 = (e) => {
+    setHours2(e.target.value);
   };
 
-  const setTimeHandler2 = (e) => {
-    setTime2(e.target.value);
+  const setMinutesHandler2 = (e) => {
+    setMinutes2(e.target.value);
+  };
+
+  const setSecondsHandler2 = (e) => {
+    setSeconds2(e.target.value);
+  };
+
+  const setIncrementHandler = (e) => {
+    console.log(e.target.value);
+    setIncrement(e.target.value);
   };
 
   const setIncrementHandler2 = (e) => {
@@ -49,7 +58,6 @@ const NewTimePrompt = (props) => {
 
   const setAsymmetryHandler = (e) => {
     setAsymmetry(!asymmetry);
-    console.log(asymmetry);
   };
 
   const setGameTypeIncrementHandler = (e) => {
@@ -64,20 +72,36 @@ const NewTimePrompt = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(`${seconds} - seconds`);
+    console.log(`${minutes} - minutes`);
+    console.log(`${hours} - hours`);
+    const time =
+      parseInt(seconds) + parseInt(minutes) * 60 + parseInt(hours) * 3600;
+    console.log(`${time} - TIME CALCULATED`);
+    const time2 = () => {
+      if (!asymmetry) {
+        return time;
+      }
+      if (asymmetry) {
+        return (
+          parseInt(seconds) + parseInt(minutes) * 60 + parseInt(hours) * 3600
+        );
+      }
+    };
     const id = Math.random().toString(36).substr(2, 5);
     props.handlers.createNewTimeHandler(
       tableName,
       time,
-      increment,
+      parseInt(increment),
       asymmetry,
       time2,
-      increment2,
+      parseInt(increment2),
       gameTypeIncrement,
       gameTypeDelay,
       id
     );
-    props.handlers.editHandler();
     props.handlers.activeIDHandler(id);
+    props.handlers.editHandler();
   };
 
   return (
@@ -94,17 +118,6 @@ const NewTimePrompt = (props) => {
           className="EditScreen__BackButton"
           onClick={props.handlers.editHandler}
         />
-        {/*  <label className="NewTimePrompt__LabelTableName" htmlFor="tableName">
-          Table Name
-        </label>
-        <input
-          className="NewTimePrompt__TableName NewTimePrompt__InputElement"
-          id="tableName"
-          type="text"
-          onChange={tableNameInputHandler}
-          value={tableName}
-        /> */}
-        {/*   <label htmlFor="Time" className="NewTimePrompt__TimeLabel">HOURS / MINUTES / SECONDS</label> */}
         <div className="NewTimePrompt__TimeValuesWrapper PlayerOne">
           <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
             HOURS
@@ -113,31 +126,28 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="hours"
             type="number"
-            min="1"
             onChange={setHoursHandler}
             value={hours}
           />
-          <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+          <label htmlFor="minutes" className="NewTimePrompt__TimeLabel">
             MINUTES
           </label>
           <input
             className="NewTimePrompt__TimeInputBox"
             id="minutes"
             type="number"
-            min="1"
             onChange={setMinutesHandler}
             value={minutes}
           />
-          <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+          <label htmlFor="seconds" className="NewTimePrompt__TimeLabel">
             SECONDS
           </label>
           <input
             className="NewTimePrompt__TimeInputBox"
             id="seconds"
             type="number"
-            min="1"
-            onChange={setTimeHandler}
-            value={time}
+            onChange={setSecondsHandler}
+            value={seconds}
           />
         </div>
         <div className="NewTimePrompt__GameModifiersWrapper">
@@ -204,38 +214,37 @@ const NewTimePrompt = (props) => {
         {asymmetry === true && (
           <React.Fragment>
             <div className="NewTimePrompt__TimeValuesWrapper PlayerTwo">
-              <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+              <label htmlFor="hours2" className="NewTimePrompt__TimeLabel">
                 HOURS
               </label>
               <input
                 className="NewTimePrompt__TimeInputBox"
-                id="hours"
+                id="hours2"
                 type="number"
-                min="1"
-                onChange={setHoursHandler}
-                value={hours}
+                min="0"
+                onChange={setHoursHandler2}
+                value={hours2}
               />
-              <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+              <label htmlFor="minutes2" className="NewTimePrompt__TimeLabel">
                 MINUTES
               </label>
               <input
                 className="NewTimePrompt__TimeInputBox"
-                id="minutes"
+                id="minutes2"
                 type="number"
-                min="1"
-                onChange={setMinutesHandler}
-                value={minutes}
+                onChange={setMinutesHandler2}
+                value={minutes2}
               />
-              <label htmlFor="hours" className="NewTimePrompt__TimeLabel">
+              <label htmlFor="seconds2" className="NewTimePrompt__TimeLabel">
                 SECONDS
               </label>
               <input
                 className="NewTimePrompt__TimeInputBox"
-                id="seconds"
+                id="seconds2"
                 type="number"
-                min="1"
-                onChange={setTimeHandler}
-                value={time}
+                min="0"
+                onChange={setSecondsHandler2}
+                value={seconds2}
               />
             </div>
           </React.Fragment>

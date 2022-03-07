@@ -1,10 +1,13 @@
 import React from "react";
 import TimeIterations from "../components/TimeIterations";
 import "../style/EditScreen.css";
-import NewTimePrompt from "./NewTimePrompt";
-import { Route } from "react-router-dom";
 
 const EditScreen = (props) => {
+  const selectHandler = () => {
+    props.handlers.activeTimeHandler(props.currentActiveID);
+    props.handlers.titleScreenHandler();
+  };
+
   return (
     <div className="EditScreen__Wrapper">
       <div className="Logo" />
@@ -52,10 +55,7 @@ const EditScreen = (props) => {
             />
           ))}
         </div>
-        <button
-          className="EditScreen__selectButton"
-          onClick={props.handlers.titleScreenHandler}
-        >
+        <button className="EditScreen__selectButton" onClick={selectHandler}>
           SELECT
         </button>
       </div>
