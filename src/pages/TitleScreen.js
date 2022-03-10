@@ -59,8 +59,6 @@ const TitleScreen = () => {
   );
 
   const [currentPage, setCurrentPage] = useState("TitleScreen");
-  const [timeVisual, setTimeVisual] = useState("");
-  const [timeVisual2, setTimeVisual2] = useState("");
 
   const mainStateHandlers = {
     startGameHandler: () => {
@@ -191,14 +189,27 @@ const TitleScreen = () => {
           <div className="Logo" />
           <div className="TitleScreen__mainGridWrapper">
             <div className="TitleScreen__TimeWrapper">
-              <div className="TitleScreen__TimeValue">
-                {currentActiveTime.time.toString()}
-                {console.log(currentActiveTime.time)}
-                {console.log(currentActiveTime.time.toString())}
+              <div className="TitleScreen__TimeElement">
+                <div className="TitleScreen__TimeValue">
+                  {currentActiveTime.time.toString()}
+                </div>
+                <div className="TitleScreen__IncrementValue">
+                  +{currentActiveTime.increment.toString()}
+                </div>
               </div>
-              <div className="TitleScreen__IncrementValue">
-                +{currentActiveTime.increment.toString()}
-              </div>
+              {currentActiveTime.asymmetry === true && (
+                <React.Fragment>
+                  <p className="TitleScreen__VS">VS</p>
+                  <div className="TitleScreen__TimeElement">
+                    <div className="TitleScreen__TimeValue">
+                      {currentActiveTime.time2.toString()}
+                    </div>
+                    <div className="TitleScreen__IncrementValue">
+                      +{currentActiveTime.increment.toString()}
+                    </div>
+                  </div>
+                </React.Fragment>
+              )}
             </div>
 
             <button

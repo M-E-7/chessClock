@@ -18,6 +18,10 @@
   );
 }
 
+.TitleScreen__titleWrapper * {
+  font-family: montserrat;
+}
+
 .TitleScreen__mainGridWrapper {
   display: grid;
 
@@ -49,9 +53,9 @@
  */
 .TitleScreen__TimeWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
 
   grid-row-start: 4;
   grid-row-end: 14;
@@ -63,7 +67,12 @@
   font-size: calc(1vw + 12px);
   font-weight: bold;
 }
-
+.TitleScreen__TimeElement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .TitleScreen__TimeValue {
   font-size: 12vh;
 }
@@ -71,7 +80,16 @@
 .TitleScreen__IncrementValue {
   position: relative;
   font-size: 6vh;
-  top: 8%;
+  top: 20%;
+}
+
+.TitleScreen__VS {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-size: 4vh;
+
+  font-weight: bold;
 }
 
 .TitleScreen__startButton {

@@ -16,6 +16,10 @@
     #333333 100%
   );
 }
+
+.GameScreen__gameWrapper * {
+  font-family: montserrat;
+}
 .GameScreen__playerOneWrapper {
   display: flex;
   justify-content: center;
@@ -123,7 +127,6 @@
   height: 80%;
   color: inherit;
 
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 8vh;
@@ -144,7 +147,6 @@
   height: 80%;
   color: inherit;
 
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 8vh;

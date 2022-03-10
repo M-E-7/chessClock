@@ -84,7 +84,7 @@ const NewTimePrompt = (props) => {
       }
       if (asymmetry) {
         return (
-          parseInt(seconds) + parseInt(minutes) * 60 + parseInt(hours) * 3600
+          parseInt(seconds2) + parseInt(minutes2) * 60 + parseInt(hours2) * 3600
         );
       }
     };
@@ -94,7 +94,7 @@ const NewTimePrompt = (props) => {
       time,
       parseInt(increment),
       asymmetry,
-      time2,
+      time2(),
       parseInt(increment2),
       gameTypeIncrement,
       gameTypeDelay,

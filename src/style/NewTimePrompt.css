@@ -28,6 +28,10 @@ input[type="number"] {
   );
 }
 
+.NewTimePrompt__Wrapper * {
+  font-family: montserrat;
+}
+
 .NewTimePrompt__MainGridWrapper {
   display: grid;
 

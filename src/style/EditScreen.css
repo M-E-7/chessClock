@@ -22,6 +22,10 @@
   );
 }
 
+.EditScreen__Wrapper * {
+  font-family: montserrat;
+}
+
 .EditScreen__mainGridWrapper {
   display: grid;
 
