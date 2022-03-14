@@ -43,8 +43,6 @@ input[type="number"] {
   grid-template-rows: repeat(24, 1fr);
   color: white;
   font-size: calc(12px + 1.8vh);
-
-  outline: 1px red dotted;
 }
 
 .NewTimePrompt__TimeValuesWrapper {
@@ -256,8 +254,11 @@ input[type="number"] {
 }
 
 .ValueInput {
+  display: flex;
+  justify-self: center;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 5;
   grid-column-end: 7;
+  width: 80%;
 }

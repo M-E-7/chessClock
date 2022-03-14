@@ -386,11 +386,17 @@ const GameScreen = (props) => {
           Quit game?
         </QuitRestartPrompt>
       )}
-      <div className="GameScreen__gameControls">
+      <div
+        className={`GameScreen__gameControls ${
+          gameState.pauseState === "pauseActionTrue"
+            ? "GameScreen__purpleBorder"
+            : ""
+        }`}
+      >
         <div
           className={`GameScreen__pauseButton ${
             gameState.pauseState === "pauseActionTrue"
-              ? "GameScreen__orange"
+              ? "GameScreen__strongPurple"
               : ""
           }`}
           onClick={() => {

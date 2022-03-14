@@ -33,8 +33,6 @@
   grid-template-rows: repeat(24, 1fr);
   color: white;
   font-size: calc(12px + 1.8vh);
-
-  outline: 1px red dotted;
 }
 
 /* .TitleScreen__innerWrapper {

@@ -81,12 +81,13 @@
 
   width: 80%;
   max-width: 1200px;
-  height: 10%;
+  height: 12%;
+  border: 1px solid transparent;
 }
 
 .GameScreen__pauseButton {
-  background: url("../resources/icons/music-pause-button-pair-of-lines-svgrepo-com.svg");
-  background-size: stretch;
+  background: url("../resources/icons/pause_button.svg");
+  background-repeat: no-repeat;
 
   height: 50%;
   aspect-ratio: 1 / 1;
@@ -94,9 +95,19 @@
   order: 2;
 }
 
-.GameScreen__exitButton {
-  background: url("../resources/icons/x-symbol-svgrepo-com.svg");
+.GameScreen__restartButton {
+  background: url("../resources/icons/restart_button.svg");
+  background-repeat: no-repeat;
 
+  height: 50%;
+  aspect-ratio: 1 / 1;
+
+  order: 1;
+}
+
+.GameScreen__exitButton {
+  background: url("../resources/icons/close_button.svg");
+  background-repeat: no-repeat;
   height: 50%;
   aspect-ratio: 1 / 1;
 
@@ -105,18 +116,17 @@
 .GameScreen__invisible {
   opacity: 0;
 }
-.GameScreen__orange {
-  filter: invert(67%) sepia(72%) saturate(2056%) hue-rotate(357deg)
-    brightness(100%) contrast(106%);
+.GameScreen__strongPurple {
+  filter: invert(57%) sepia(28%) saturate(881%) hue-rotate(223deg)
+    brightness(92%) contrast(92%);
+  height: 60%;
 }
-.GameScreen__restartButton {
-  background: url("../resources/icons/debug-restart-svgrepo-com.svg");
 
-  height: 50%;
-  aspect-ratio: 1 / 1;
-
-  order: 1;
+.GameScreen__purpleBorder {
+  border-color: #f8a8f0;
+  filter: drop-shadow(0px 0px 15px #a97ce2);
 }
+
 .GameScreen__playerOneTime {
   display: flex;
   align-items: center;
