@@ -37,14 +37,16 @@ const TimeIterations = (props) => {
     }
   };
 
-  const textTimeValues = () => {
-    if (props.asymmetry === true) {
-      return `(${props.time} + ${props.increment}) vs (${props.time2} + ${props.increment2})`;
-    }
-    if (props.asymmetry === false) {
-      return `(${props.time} + ${props.increment})`;
-    }
+  const timeFormatter = props.handlers.timeFormatter;
+
+  const textTimeValues1 = () => {
+    return `${timeFormatter(props.time)} + ${props.increment}`;
   };
+
+  const textTimeValues2 = () => {
+    return ` ${timeFormatter(props.time2)} + ${props.increment2}`;
+  };
+
   return (
     <div
       unselectable="on"
@@ -59,8 +61,13 @@ const TimeIterations = (props) => {
       className="TimeIterations__timeOption"
       onClick={activeHandler}
     >
-      <p className="TimeIterations__text">{`${props.tableName}`}</p>
-      <p className="TimeIterations__text">{textTimeValues()}</p>
+      <p className="TimeIterations__text">{textTimeValues1()}</p>
+      {props.asymmetry && (
+        <React.Fragment>
+          <p className="TimeIterations__text">VS</p>
+          <p className="TimeIterations__text">{textTimeValues2()}</p>
+        </React.Fragment>
+      )}
       <p className="TimeIterations__text">{`(${textGameType()})`}</p>
     </div>
   );

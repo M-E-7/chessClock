@@ -122,6 +122,10 @@ const TitleScreen = () => {
       }
     },
 
+    timeFormatter: (s) => {
+      return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
+    },
+
     createNewTimeHandler: (
       tableName,
       time,
@@ -191,7 +195,7 @@ const TitleScreen = () => {
             <div className="TitleScreen__TimeWrapper">
               <div className="TitleScreen__TimeElement">
                 <div className="TitleScreen__TimeValue">
-                  {currentActiveTime.time.toString()}
+                  {mainStateHandlers.timeFormatter(currentActiveTime.time)}
                 </div>
                 <div className="TitleScreen__IncrementValue">
                   +{currentActiveTime.increment.toString()}
@@ -202,7 +206,7 @@ const TitleScreen = () => {
                   <p className="TitleScreen__VS">VS</p>
                   <div className="TitleScreen__TimeElement">
                     <div className="TitleScreen__TimeValue">
-                      {currentActiveTime.time2.toString()}
+                      {mainStateHandlers.timeFormatter(currentActiveTime.time2)}
                     </div>
                     <div className="TitleScreen__IncrementValue">
                       +{currentActiveTime.increment.toString()}

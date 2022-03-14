@@ -6,7 +6,6 @@ import "../style/GameScreen.css";
 import clickSound from "../resources/sounds/clickSound.wav";
 
 import { useWakeLock } from "react-screen-wake-lock";
-import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 const gameStateReducer = (state, action) => {
   switch (action.type) {

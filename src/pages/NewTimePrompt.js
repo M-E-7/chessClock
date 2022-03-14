@@ -72,22 +72,30 @@ const NewTimePrompt = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const parsedSeconds = isNaN(parseInt(seconds)) ? 0 : parseInt(seconds);
+    const parsedMinutes = isNaN(parseInt(minutes)) ? 0 : parseInt(minutes);
+    const parsedHours = isNaN(parseInt(hours)) ? 0 : parseInt(hours);
+    const parsedSeconds2 = isNaN(parseInt(seconds2)) ? 0 : parseInt(seconds2);
+    const parsedMinutes2 = isNaN(parseInt(minutes2)) ? 0 : parseInt(minutes2);
+    const parsedHours2 = isNaN(parseInt(hours2)) ? 0 : parseInt(hours2);
+
     console.log(`${seconds} - seconds`);
     console.log(`${minutes} - minutes`);
     console.log(`${hours} - hours`);
-    const time =
-      parseInt(seconds) + parseInt(minutes) * 60 + parseInt(hours) * 3600;
+    const time = parsedSeconds + parsedMinutes * 60 + parsedHours * 3600;
     console.log(`${time} - TIME CALCULATED`);
     const time2 = () => {
       if (!asymmetry) {
         return time;
       }
       if (asymmetry) {
-        return (
-          parseInt(seconds2) + parseInt(minutes2) * 60 + parseInt(hours2) * 3600
-        );
+        return parsedSeconds2 + parsedMinutes2 * 60 + parsedHours2 * 3600;
       }
     };
+
+    if (time === 0 || time2() === 0) {
+      return;
+    }
     const id = Math.random().toString(36).substr(2, 5);
     props.handlers.createNewTimeHandler(
       tableName,
@@ -102,6 +110,11 @@ const NewTimePrompt = (props) => {
     );
     props.handlers.activeIDHandler(id);
     props.handlers.editHandler();
+  };
+
+  const nonNumberFilter = (evt) => {
+    (evt.key === "e" || evt.key === "." || evt.key === "-") &&
+      evt.preventDefault();
   };
 
   return (
@@ -128,6 +141,9 @@ const NewTimePrompt = (props) => {
             type="number"
             onChange={setHoursHandler}
             value={hours}
+            onKeyDown={(evt) => {
+              nonNumberFilter(evt);
+            }}
           />
           <label htmlFor="minutes" className="NewTimePrompt__TimeLabel">
             MINUTES
@@ -138,6 +154,9 @@ const NewTimePrompt = (props) => {
             type="number"
             onChange={setMinutesHandler}
             value={minutes}
+            onKeyDown={(evt) => {
+              nonNumberFilter(evt);
+            }}
           />
           <label htmlFor="seconds" className="NewTimePrompt__TimeLabel">
             SECONDS
@@ -148,6 +167,9 @@ const NewTimePrompt = (props) => {
             type="number"
             onChange={setSecondsHandler}
             value={seconds}
+            onKeyDown={(evt) => {
+              nonNumberFilter(evt);
+            }}
           />
         </div>
         <div className="NewTimePrompt__GameModifiersWrapper">
@@ -158,6 +180,9 @@ const NewTimePrompt = (props) => {
             min="0"
             onChange={setIncrementHandler}
             value={increment}
+            onKeyDown={(evt) => {
+              nonNumberFilter(evt);
+            }}
           />
 
           <input
@@ -224,6 +249,9 @@ const NewTimePrompt = (props) => {
                 min="0"
                 onChange={setHoursHandler2}
                 value={hours2}
+                onKeyDown={(evt) => {
+                  nonNumberFilter(evt);
+                }}
               />
               <label htmlFor="minutes2" className="NewTimePrompt__TimeLabel">
                 MINUTES
@@ -234,6 +262,9 @@ const NewTimePrompt = (props) => {
                 type="number"
                 onChange={setMinutesHandler2}
                 value={minutes2}
+                onKeyDown={(evt) => {
+                  nonNumberFilter(evt);
+                }}
               />
               <label htmlFor="seconds2" className="NewTimePrompt__TimeLabel">
                 SECONDS
@@ -245,6 +276,9 @@ const NewTimePrompt = (props) => {
                 min="0"
                 onChange={setSecondsHandler2}
                 value={seconds2}
+                onKeyDown={(evt) => {
+                  nonNumberFilter(evt);
+                }}
               />
             </div>
           </React.Fragment>
