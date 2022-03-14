@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../style/NewTimePrompt.css";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const NewTimePrompt = (props) => {
+  const { height, width } = useWindowDimensions();
+
   const [tableName, setTableName] = useState("");
 
   const [hours, setHours] = useState(0);
@@ -118,7 +121,10 @@ const NewTimePrompt = (props) => {
   };
 
   return (
-    <div className="NewTimePrompt__Wrapper">
+    <div
+      className="NewTimePrompt__Wrapper"
+      style={{ height: height, width: width }}
+    >
       <div className="Logo" />
 
       <form

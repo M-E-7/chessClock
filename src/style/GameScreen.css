@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  user-select: none;
 
   width: 100vw;
   height: 100vh;
@@ -99,7 +100,7 @@
   background: url("../resources/icons/restart_button.svg");
   background-repeat: no-repeat;
 
-  height: 50%;
+  height: 40%;
   aspect-ratio: 1 / 1;
 
   order: 1;
@@ -108,7 +109,7 @@
 .GameScreen__exitButton {
   background: url("../resources/icons/close_button.svg");
   background-repeat: no-repeat;
-  height: 50%;
+  height: 40%;
   aspect-ratio: 1 / 1;
 
   order: 3;
@@ -124,7 +125,8 @@
 
 .GameScreen__purpleBorder {
   border-color: #f8a8f0;
-  filter: drop-shadow(0px 0px 15px #a97ce2);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 13px 10px rgba(162, 60, 210, 0.35);
 }
 
 .GameScreen__playerOneTime {
@@ -138,7 +140,7 @@
   color: inherit;
 
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 8vh;
 
   /* identical to box height */
@@ -158,7 +160,7 @@
   color: inherit;
 
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 8vh;
 
   /* identical to box height */
@@ -171,6 +173,6 @@
 }
 
 .GameScreen__delayTimer {
-  font-size: 8vh;
+  font-size: 10vh;
   color: white;
 }

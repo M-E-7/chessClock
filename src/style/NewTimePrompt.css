@@ -14,9 +14,8 @@ input[type="number"] {
   align-items: center;
   justify-content: center;
   position: absolute;
+  user-select: none;
 
-  width: 100%;
-  height: 100%;
   max-width: 100%;
 
   background: linear-gradient(
@@ -42,7 +41,7 @@ input[type="number"] {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(24, 1fr);
   color: white;
-  font-size: calc(12px + 1.8vh);
+  font-size: calc(0.8vw + 18px);
 }
 
 .NewTimePrompt__TimeValuesWrapper {
@@ -59,7 +58,7 @@ input[type="number"] {
 
   border: none;
 
-  font-size: 3.5vh;
+  font-size: calc(0.8vw + 18px);
   color: white;
   font-weight: bold;
 }
@@ -95,7 +94,7 @@ input[type="number"] {
   border-radius: 10px;
   border: none;
 
-  font-size: 3.5vh;
+  font-size: calc(0.8vw + 22px);
   color: white;
   font-weight: bold;
 }
@@ -128,7 +127,7 @@ input[type="number"] {
   border-radius: 10px;
   border: none;
 
-  font-size: 3.5vh;
+  font-size: calc(0.8vw + 18px);
   color: white;
   font-weight: bold;
 }
@@ -150,7 +149,7 @@ input[type="number"] {
   min-width: 0%;
   min-height: 0%;
 
-  font-size: 3.5vh;
+  font-size: calc(0.8vw + 12px);
   color: white;
   font-weight: bold;
 }
@@ -241,6 +240,7 @@ input[type="number"] {
 
   min-width: 0%;
   min-height: 0%;
+  height: 100%;
 
   background: linear-gradient(0deg, #473263, #473263), #c4c4c4;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
@@ -248,7 +248,7 @@ input[type="number"] {
   border-radius: 10px;
   border: none;
 
-  font-size: 3.5vh;
+  font-size: calc(0.8vw + 18px);
   color: white;
   font-weight: bold;
 }
