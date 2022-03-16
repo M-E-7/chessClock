@@ -4,8 +4,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  /*  width: 360px;
-    height: 640px; */
+
   width: 100vw;
   height: 100vh;
   background: linear-gradient(
@@ -17,20 +16,37 @@
   );
 }
 
+.ChessTVScreen__InnerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: 600px;
+}
+
 .ChessTVScreen__BackButton {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 12%;
-  max-width: 100px;
+  top: 4%;
+  left: 7%;
+
+  width: 10%;
   aspect-ratio: 1/1;
   border: none;
 
   background-color: black;
 
-  background: url("../resources/icons/back-arrow-svgrepo-com.svg");
-
+  background: url("../resources/icons/back_arrow.svg");
+  background-repeat: no-repeat;
   background-size: stretch;
-  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
-  filter: invert(100%);
+}
+
+.ChessTVScreen__LoadingText {
+  position: absolute;
+  color: white;
+  font-family: montserrat;
 }
