@@ -22,53 +22,65 @@ const NewTimePrompt = (props) => {
   const [gameTypeIncrement, setGameTypeIncrement] = useState(true);
   const [gameTypeDelay, setGameTypeDelay] = useState(false);
 
+  const [errorState, setErrorState] = useState(false);
+
   const tableNameInputHandler = (e) => {
     setTableName(e.target.value);
   };
 
   const setHoursHandler = (e) => {
+    setErrorState(false);
     setHours(e.target.value);
   };
 
   const setMinutesHandler = (e) => {
+    setErrorState(false);
     setMinutes(e.target.value);
   };
 
   const setSecondsHandler = (e) => {
+    setErrorState(false);
     setSeconds(e.target.value);
   };
 
   const setHoursHandler2 = (e) => {
+    setErrorState(false);
     setHours2(e.target.value);
   };
 
   const setMinutesHandler2 = (e) => {
+    setErrorState(false);
     setMinutes2(e.target.value);
   };
 
   const setSecondsHandler2 = (e) => {
+    setErrorState(false);
     setSeconds2(e.target.value);
   };
 
   const setIncrementHandler = (e) => {
-    console.log(e.target.value);
+    setErrorState(false);
     setIncrement(e.target.value);
   };
 
   const setIncrementHandler2 = (e) => {
+    setErrorState(false);
     setIncrement2(e.target.value);
   };
 
   const setAsymmetryHandler = (e) => {
+    setErrorState(false);
     setAsymmetry(!asymmetry);
   };
 
   const setGameTypeIncrementHandler = (e) => {
+    setErrorState(false);
     setGameTypeIncrement(true);
     setGameTypeDelay(false);
   };
 
   const setGameTypeDelayHandler = (e) => {
+    setErrorState(false);
     setGameTypeDelay(true);
     setGameTypeIncrement(false);
   };
@@ -96,7 +108,8 @@ const NewTimePrompt = (props) => {
       }
     };
 
-    if (time === 0 || time2() === 0) {
+    if (time < 1 || time2() < 1) {
+      setErrorState(true);
       return;
     }
     const id = Math.random().toString(36).substr(2, 5);
@@ -145,6 +158,7 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="hours"
             type="number"
+            max="10"
             onChange={setHoursHandler}
             value={hours}
             onKeyDown={(evt) => {
@@ -158,6 +172,7 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="minutes"
             type="number"
+            max="59"
             onChange={setMinutesHandler}
             value={minutes}
             onKeyDown={(evt) => {
@@ -171,6 +186,7 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="seconds"
             type="number"
+            max="59"
             onChange={setSecondsHandler}
             value={seconds}
             onKeyDown={(evt) => {
@@ -242,7 +258,7 @@ const NewTimePrompt = (props) => {
           </label>
         </div>
 
-        {asymmetry === true && (
+        {asymmetry && (
           <React.Fragment>
             <div className="NewTimePrompt__TimeValuesWrapper PlayerTwo">
               <label htmlFor="hours2" className="NewTimePrompt__TimeLabel">
@@ -253,6 +269,7 @@ const NewTimePrompt = (props) => {
                 id="hours2"
                 type="number"
                 min="0"
+                max="10"
                 onChange={setHoursHandler2}
                 value={hours2}
                 onKeyDown={(evt) => {
@@ -266,6 +283,7 @@ const NewTimePrompt = (props) => {
                 className="NewTimePrompt__TimeInputBox"
                 id="minutes2"
                 type="number"
+                max="59"
                 onChange={setMinutesHandler2}
                 value={minutes2}
                 onKeyDown={(evt) => {
@@ -280,6 +298,7 @@ const NewTimePrompt = (props) => {
                 id="seconds2"
                 type="number"
                 min="0"
+                max="59"
                 onChange={setSecondsHandler2}
                 value={seconds2}
                 onKeyDown={(evt) => {
@@ -292,6 +311,9 @@ const NewTimePrompt = (props) => {
         <button className="NewTimePrompt__Submit" type="submit">
           SUBMIT
         </button>
+        {errorState && (
+          <p className="NewTimePrompt__ErrorMessage">Invalid time!</p>
+        )}
       </form>
     </div>
   );
