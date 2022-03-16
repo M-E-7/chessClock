@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
 
-import QuitRestartPrompt from "../components/QuitRestartPrompt";
+import QuitRestartModal from "../components/QuitRestartModal";
 import DelayTimer from "../components/DelayTimer";
 import "../style/GameScreen.css";
 import clickSound from "../resources/sounds/clickSound.wav";
@@ -371,20 +371,20 @@ const GameScreen = (props) => {
         </div>
       </div>
       {gameState.restartPromptVar === true && (
-        <QuitRestartPrompt
+        <QuitRestartModal
           dispatchGameState={dispatchGameState}
           dispatchType={"restartAcceptAction"}
         >
-          Restart game?
-        </QuitRestartPrompt>
+          RESTART?
+        </QuitRestartModal>
       )}
       {gameState.quitPromptVar === true && (
-        <QuitRestartPrompt
+        <QuitRestartModal
           dispatchGameState={dispatchGameState}
           dispatchType={"quitToTitleScreen"}
         >
-          Quit game?
-        </QuitRestartPrompt>
+          QUIT?
+        </QuitRestartModal>
       )}
       <div
         className={`GameScreen__gameControls ${
@@ -403,6 +403,7 @@ const GameScreen = (props) => {
             if (gameState.gameOver === 1) {
               return;
             } else {
+              playClickSound();
               dispatchGameState({ type: gameState.pauseState });
             }
           }}

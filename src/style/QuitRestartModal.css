@@ -1,0 +1,123 @@
+.QuitRestartModal__Wrapper {
+  display: grid;
+  grid-template-columns: repeat(19, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  z-index: 1;
+  position: absolute;
+  width: 90%;
+  max-width: 1200px;
+  height: 30%;
+  background: black;
+  border-radius: 10px;
+  border: 0.5px solid #ffffff;
+}
+
+.QuitRestartModal__YES {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+
+  border: 3px solid #3fa574;
+
+  min-width: 0;
+  min-height: 0;
+
+  grid-row-start: 3;
+  grid-row-end: 7;
+  grid-column-start: 2;
+  grid-column-end: 10;
+
+  padding: 0;
+  margin: 0;
+
+  border-radius: 10px;
+}
+
+.QuitRestartModal__NO {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: black;
+  color: white;
+
+  border: 3px solid #a53f3f;
+
+  min-width: 0;
+  min-height: 0;
+
+  grid-row-start: 3;
+  grid-row-end: 7;
+  grid-column-start: 11;
+  grid-column-end: 19;
+
+  padding: 0;
+  margin: 0;
+
+  border-radius: 10px;
+}
+
+.QuitRestartModal__Quit1 {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  margin: 0;
+  top: 20%;
+  left: 20%;
+
+  min-width: 0;
+  min-height: 0;
+
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+
+  font-size: calc(2vh + 15px);
+  font-family: montserrat;
+  font-weight: bold;
+}
+
+.QuitRestartModal__Quit2 {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  margin: 0;
+  bottom: 20%;
+  right: -10%;
+
+  min-width: 0;
+  min-height: 0;
+
+  grid-row-start: 8;
+  grid-row-end: 9;
+  grid-column-start: 14;
+  grid-column-end: 19;
+
+  font-size: calc(2vh + 15px);
+  font-family: montserrat;
+  font-weight: bold;
+  transform: rotate(-180deg);
+}
+
+.QuitRestartModal__Text1 {
+  font-size: calc(2vh + 35px);
+  margin: 0;
+  font-family: montserrat;
+  font-weight: bold;
+}
+
+.QuitRestartModal__Text2 {
+  font-size: calc(2vh + 35px);
+  margin: 0;
+  font-family: montserrat;
+  font-weight: bold;
+  transform: rotate(-180deg);
+}
