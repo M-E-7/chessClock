@@ -24,6 +24,17 @@ const NewTimePrompt = (props) => {
 
   const [errorState, setErrorState] = useState(false);
 
+  const incrementRadioState = () => {
+    return gameTypeIncrement ? "radioTrue" : "radioFalse";
+  };
+  const delayRadioState = () => {
+    return gameTypeDelay ? "radioTrue" : "radioFalse";
+  };
+
+  const asymmetryCheckboxState = () => {
+    return asymmetry ? "checkboxTrue" : "checkboxFalse";
+  };
+
   const tableNameInputHandler = (e) => {
     setTableName(e.target.value);
   };
@@ -158,6 +169,7 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="hours"
             type="number"
+            min="0"
             max="10"
             onChange={setHoursHandler}
             value={hours}
@@ -172,6 +184,7 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="minutes"
             type="number"
+            min="0"
             max="59"
             onChange={setMinutesHandler}
             value={minutes}
@@ -186,6 +199,7 @@ const NewTimePrompt = (props) => {
             className="NewTimePrompt__TimeInputBox"
             id="seconds"
             type="number"
+            min="0"
             max="59"
             onChange={setSecondsHandler}
             value={seconds}
@@ -200,6 +214,7 @@ const NewTimePrompt = (props) => {
             id="Increment"
             type="number"
             min="0"
+            max="1000"
             onChange={setIncrementHandler}
             value={increment}
             onKeyDown={(evt) => {
@@ -207,12 +222,10 @@ const NewTimePrompt = (props) => {
             }}
           />
 
-          <input
-            className="NewTimePrompt__GameType__Checkbox IncrementCheckbox"
+          <div
+            className={`NewTimePrompt__GameType__Checkbox IncrementCheckbox ${incrementRadioState()}`}
             id="IncrementBox"
-            type="checkbox"
-            onChange={setGameTypeIncrementHandler}
-            checked={gameTypeIncrement}
+            onClick={setGameTypeIncrementHandler}
           />
           <label
             htmlFor="IncrementBox"
@@ -221,12 +234,10 @@ const NewTimePrompt = (props) => {
             Increment
           </label>
 
-          <input
-            className="NewTimePrompt__GameType__Checkbox DelayCheckbox"
+          <div
+            className={`NewTimePrompt__GameType__Checkbox DelayCheckbox ${delayRadioState()}`}
             id="DelayBox"
-            type="checkbox"
-            onChange={setGameTypeDelayHandler}
-            checked={gameTypeDelay}
+            onClick={setGameTypeDelayHandler}
           />
           <label
             htmlFor="DelayBox"
@@ -235,12 +246,10 @@ const NewTimePrompt = (props) => {
             Delay
           </label>
 
-          <input
-            className="NewTimePrompt__GameType__Checkbox AsymmetryCheckbox"
+          <div
+            className={`NewTimePrompt__GameType__Checkbox AsymmetryCheckbox ${asymmetryCheckboxState()}`}
             id="AsymmetryBox"
-            type="checkbox"
-            onChange={setAsymmetryHandler}
-            value={asymmetry}
+            onClick={setAsymmetryHandler}
           />
           <label
             htmlFor="AsymmetryBox"
@@ -283,6 +292,7 @@ const NewTimePrompt = (props) => {
                 className="NewTimePrompt__TimeInputBox"
                 id="minutes2"
                 type="number"
+                min="0"
                 max="59"
                 onChange={setMinutesHandler2}
                 value={minutes2}

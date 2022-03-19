@@ -160,14 +160,41 @@ input[type="number"] {
   align-items: center;
   text-align: center;
 
+  justify-self: center;
+  align-self: center;
+
   min-width: 0%;
   min-height: 0%;
 
-  background: linear-gradient(0deg, #473263, #473263), #c4c4c4;
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  border: none;
+  height: 70%;
+  aspect-ratio: 1/1;
+
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.radioFalse {
+  background: url("../resources/icons/radioFalse.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.radioTrue {
+  background: url("../resources/icons/radioTrue.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.checkboxFalse {
+  background: url("../resources/icons/checkboxFalse.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.checkboxTrue {
+  background: url("../resources/icons/checkboxTrue.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .IncrementCheckbox {
@@ -195,6 +222,9 @@ input[type="number"] {
   display: flex;
   justify-content: flex-start;
   text-align: center;
+
+  justify-self: flex-start;
+  align-self: center;
 
   min-width: 0%;
   min-height: 0%;
