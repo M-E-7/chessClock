@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "../style/NewTimePrompt.css";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
+import { ReactComponent as CheckboxTrueSVG } from "../resources/icons/checkboxTrue.svg";
+import { ReactComponent as CheckboxFalseSVG } from "../resources/icons/checkboxFalse.svg";
+import { ReactComponent as RadioTrueSVG } from "../resources/icons/radioTrue.svg";
+import { ReactComponent as RadioFalseSVG } from "../resources/icons/radioFalse.svg";
+
 const NewTimePrompt = (props) => {
   const { height, width } = useWindowDimensions();
 
@@ -24,15 +29,52 @@ const NewTimePrompt = (props) => {
 
   const [errorState, setErrorState] = useState(false);
 
-  const incrementRadioState = () => {
-    return gameTypeIncrement ? "radioTrue" : "radioFalse";
-  };
-  const delayRadioState = () => {
-    return gameTypeDelay ? "radioTrue" : "radioFalse";
+  const incrementDisplayFunction = () => {
+    return gameTypeIncrement ? (
+      <RadioTrueSVG
+        className={`NewTimePrompt__GameType__CheckboxRadio IncrementCheckbox`}
+        id="IncrementBox"
+        onClick={setGameTypeIncrementHandler}
+      />
+    ) : (
+      <RadioFalseSVG
+        className={`NewTimePrompt__GameType__CheckboxRadio IncrementCheckbox`}
+        id="IncrementBox"
+        onClick={setGameTypeIncrementHandler}
+      />
+    );
   };
 
-  const asymmetryCheckboxState = () => {
-    return asymmetry ? "checkboxTrue" : "checkboxFalse";
+  const delayDisplayFunction = () => {
+    return gameTypeDelay ? (
+      <RadioTrueSVG
+        className={`NewTimePrompt__GameType__CheckboxRadio DelayCheckbox`}
+        id="DelayBox"
+        onClick={setGameTypeDelayHandler}
+      />
+    ) : (
+      <RadioFalseSVG
+        className={`NewTimePrompt__GameType__CheckboxRadio DelayCheckbox`}
+        id="DelayBox"
+        onClick={setGameTypeDelayHandler}
+      />
+    );
+  };
+
+  const asymmetryDisplayFunction = () => {
+    return asymmetry ? (
+      <CheckboxTrueSVG
+        className={`NewTimePrompt__GameType__CheckboxRadio AsymmetryCheckbox`}
+        id="AsymmetryBox"
+        onClick={setAsymmetryHandler}
+      />
+    ) : (
+      <CheckboxFalseSVG
+        className={`NewTimePrompt__GameType__CheckboxRadio AsymmetryCheckbox`}
+        id="AsymmetryBox"
+        onClick={setAsymmetryHandler}
+      />
+    );
   };
 
   const tableNameInputHandler = (e) => {
@@ -222,11 +264,8 @@ const NewTimePrompt = (props) => {
             }}
           />
 
-          <div
-            className={`NewTimePrompt__GameType__Checkbox IncrementCheckbox ${incrementRadioState()}`}
-            id="IncrementBox"
-            onClick={setGameTypeIncrementHandler}
-          />
+          {incrementDisplayFunction()}
+
           <label
             htmlFor="IncrementBox"
             className="NewTimePrompt__GameType__Label IncrementLabel"
@@ -234,11 +273,7 @@ const NewTimePrompt = (props) => {
             Increment
           </label>
 
-          <div
-            className={`NewTimePrompt__GameType__Checkbox DelayCheckbox ${delayRadioState()}`}
-            id="DelayBox"
-            onClick={setGameTypeDelayHandler}
-          />
+          {delayDisplayFunction()}
           <label
             htmlFor="DelayBox"
             className="NewTimePrompt__GameType__Label DelayLabel"
@@ -246,11 +281,8 @@ const NewTimePrompt = (props) => {
             Delay
           </label>
 
-          <div
-            className={`NewTimePrompt__GameType__Checkbox AsymmetryCheckbox ${asymmetryCheckboxState()}`}
-            id="AsymmetryBox"
-            onClick={setAsymmetryHandler}
-          />
+          {asymmetryDisplayFunction()}
+
           <label
             htmlFor="AsymmetryBox"
             className="NewTimePrompt__GameType__Label AsymmetryLabel"

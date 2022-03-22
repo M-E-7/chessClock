@@ -154,7 +154,7 @@ input[type="number"] {
   font-weight: bold;
 }
 
-.NewTimePrompt__GameType__Checkbox {
+.NewTimePrompt__GameType__CheckboxRadio {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +173,7 @@ input[type="number"] {
   max-height: 100%;
 }
 
-.radioFalse {
+/* .radioFalse {
   background: url("../resources/icons/radioFalse.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -195,7 +195,7 @@ input[type="number"] {
   background: url("../resources/icons/checkboxTrue.svg");
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .IncrementCheckbox {
   grid-row-start: 1;

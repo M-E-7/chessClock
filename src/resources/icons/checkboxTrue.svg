@@ -1,1 +1,16 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><defs><style>.cls-1{fill:#824ec6;}.cls-2{fill:#191919;}</style></defs><title>checkboxTrue</title><rect class="cls-1" width="20" height="20"/><path class="cls-2" d="M18.1,4.51a1.12,1.12,0,0,0-1.6,0L7.93,13.09,4.39,9.54a1.12,1.12,0,0,0-1.6,0,1.1,1.1,0,0,0,0,1.6l4.34,4.35a1.11,1.11,0,0,0,1.6,0L18.1,6.11A1.1,1.1,0,0,0,18.1,4.51Z" transform="translate(0 0)"/></svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #824ec6;
+      }
+
+      .cls-2 {
+        fill: #191919;
+      }
+    </style>
+  </defs>
+  <title>checkboxTrue</title>
+  <rect class="cls-1" width="20" height="20"/>
+  <path class="cls-2" d="M18.1,4.51a1.12,1.12,0,0,0-1.58,0l0,0L7.93,13.09,4.39,9.54a1.12,1.12,0,0,0-1.58,0l0,0a1.1,1.1,0,0,0,0,1.55l0,.05,4.34,4.35a1.11,1.11,0,0,0,1.57,0l0,0L18.1,6.11a1.11,1.11,0,0,0,0-1.56Z" transform="translate(0 0)"/>
+</svg>

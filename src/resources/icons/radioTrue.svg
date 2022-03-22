@@ -1,1 +1,18 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><defs><style>.cls-1{fill:none;stroke:#824ec6;stroke-width:2px;}.cls-2{fill:#824ec6;}</style></defs><title>RadioTrue</title><circle class="cls-1" cx="11" cy="11" r="10"/><circle class="cls-2" cx="11" cy="11" r="6"/></svg>
+<svg id="e659d3ce-79f2-480d-9aca-08acb4bc9b44" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <defs>
+    <style>
+      .ac03f715-9543-48bb-9948-18f15d40fa4b {
+        fill: none;
+        stroke: #824ec6;
+        stroke-width: 2px;
+      }
+
+      .a8035808-e069-4b2b-a056-1406bffaf07e {
+        fill: #824ec6;
+      }
+    </style>
+  </defs>
+  <title>radioTrue</title>
+  <circle class="ac03f715-9543-48bb-9948-18f15d40fa4b" cx="11" cy="11" r="10"/>
+  <circle class="a8035808-e069-4b2b-a056-1406bffaf07e" cx="11" cy="11" r="6"/>
+</svg>
