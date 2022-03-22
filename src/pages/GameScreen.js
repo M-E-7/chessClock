@@ -7,6 +7,10 @@ import clickSound from "../resources/sounds/clickSound.wav";
 
 import { useWakeLock } from "react-screen-wake-lock";
 
+import { ReactComponent as PauseButtonSVG } from "../resources/icons/pause_button.svg";
+import { ReactComponent as RestartButtonSVG } from "../resources/icons/restart_button.svg";
+import { ReactComponent as ExitButtonSVG } from "../resources/icons/close_button.svg";
+
 const gameStateReducer = (state, action) => {
   switch (action.type) {
     default: {
@@ -393,7 +397,7 @@ const GameScreen = (props) => {
             : ""
         }`}
       >
-        <div
+        <PauseButtonSVG
           className={`GameScreen__pauseButton ${
             gameState.pauseState === "pauseActionTrue"
               ? "GameScreen__strongPurple"
@@ -407,23 +411,23 @@ const GameScreen = (props) => {
               dispatchGameState({ type: gameState.pauseState });
             }
           }}
-        ></div>
+        />
 
         {gameState.pauseState === "pauseActionTrue" ||
         gameState.gameOver === 1 ? (
           <React.Fragment>
-            <div
+            <ExitButtonSVG
               className="GameScreen__exitButton"
               onClick={() => {
                 dispatchGameState({ type: "quitOnAction" });
               }}
-            ></div>
-            <div
+            />
+            <RestartButtonSVG
               className="GameScreen__restartButton"
               onClick={() => {
                 dispatchGameState({ type: "restartOnAction" });
               }}
-            ></div>
+            />
           </React.Fragment>
         ) : (
           <React.Fragment>

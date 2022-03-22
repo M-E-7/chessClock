@@ -87,9 +87,6 @@
 }
 
 .GameScreen__pauseButton {
-  background: url("../resources/icons/pause_button.svg");
-  background-repeat: no-repeat;
-
   height: 50%;
   aspect-ratio: 1 / 1;
 
@@ -97,18 +94,13 @@
 }
 
 .GameScreen__restartButton {
-  background: url("../resources/icons/restart_button.svg");
-  background-repeat: no-repeat;
-
   height: 40%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
 
   order: 1;
 }
 
 .GameScreen__exitButton {
-  background: url("../resources/icons/close_button.svg");
-  background-repeat: no-repeat;
   height: 40%;
   aspect-ratio: 1 / 1;
 
