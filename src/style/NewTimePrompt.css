@@ -97,6 +97,8 @@ input[type="number"] {
   font-size: calc(0.8vw + 22px);
   color: white;
   font-weight: bold;
+
+  cursor: pointer;
 }
 
 .NewTimePrompt__TimeLabel {
@@ -171,6 +173,8 @@ input[type="number"] {
 
   max-width: 100%;
   max-height: 100%;
+
+  cursor: pointer;
 }
 
 /* .radioFalse {

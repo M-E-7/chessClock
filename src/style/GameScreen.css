@@ -43,6 +43,8 @@
   background: #1a1a1a;
   box-shadow: inset 0px 0px 11px 17px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+
+  cursor: pointer;
 }
 
 .GameScreen__playerTwoWrapper {
@@ -67,6 +69,8 @@
   background: #1a1a1a;
   box-shadow: inset 0px 0px 11px 17px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+
+  cursor: pointer;
 }
 .GameScreen__gameControls {
   position: relative;
@@ -91,6 +95,8 @@
   aspect-ratio: 1 / 1;
 
   order: 2;
+
+  cursor: pointer;
 }
 
 .GameScreen__restartButton {
@@ -98,6 +104,8 @@
   aspect-ratio: 1/1;
 
   order: 1;
+
+  cursor: pointer;
 }
 
 .GameScreen__exitButton {
@@ -105,6 +113,8 @@
   aspect-ratio: 1 / 1;
 
   order: 3;
+
+  cursor: pointer;
 }
 .GameScreen__invisible {
   opacity: 0;

@@ -72,6 +72,8 @@
   background: url("../resources/icons/back_arrow.svg");
   background-repeat: no-repeat;
   background-size: stretch;
+
+  cursor: pointer;
 }
 
 .EditScreen__ElementsWrapper {
@@ -134,6 +136,8 @@
   font-size: calc(0.8vw + 22px);
   color: white;
   font-weight: bold;
+
+  cursor: pointer;
 }
 
 .EditScreen__availableTimes {
@@ -180,6 +184,8 @@
   aspect-ratio: 1/1;
 
   font-size: 1em;
+
+  cursor: pointer;
 }
 
 .TimeIterations__text {
@@ -205,6 +211,8 @@
   box-sizing: border-box;
   border-radius: 5px;
   background-color: transparent;
+
+  cursor: pointer;
 }
 
 .EditScreen__newTimeButton {
@@ -225,4 +233,6 @@
   background: #824ec6;
   border-radius: 5px;
   font-weight: bold;
+
+  cursor: pointer;
 }

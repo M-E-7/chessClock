@@ -7,6 +7,8 @@ import NewTimePrompt from "./NewTimePrompt";
 import ChessTVScreen from "./ChessTVScreen";
 import { useHistory, Route } from "react-router-dom";
 
+import { ReactComponent as WatchChessTVSVG } from "../resources/icons/watch-chess-tv.svg";
+
 const TitleScreen = () => {
   let history = useHistory();
   const [availableTimes, setAvailableTimes] = useState(() => {
@@ -222,12 +224,11 @@ const TitleScreen = () => {
             >
               START
             </button>
-            <button
+            <WatchChessTVSVG
               className="TitleScreen__chessTVButton"
               onClick={mainStateHandlers.chessTVHandler}
-            >
-              <p className="TitleScreen__chessTVButton__text">watch chess TV</p>
-            </button>
+            ></WatchChessTVSVG>
+            <p className="TitleScreen__chessTVButton__text">watch chess TV</p>
             <button
               className="TitleScreen__editButton"
               onClick={mainStateHandlers.editHandler}
