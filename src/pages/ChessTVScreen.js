@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../style/ChessTVScreen.css";
+import BackIconSVG from "../components/backIconSVG";
 
 const ChessTV = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,10 +9,10 @@ const ChessTV = (props) => {
   return (
     <div className="ChessTVScreen__Wrapper">
       <div className="ChessTVScreen__InnerWrapper">
-        <button
+        <BackIconSVG
           className="ChessTVScreen__BackButton"
           onClick={props.handlers.titleScreenHandler}
-        ></button>
+        />
         {isLoading && (
           <h1 className="ChessTVScreen__LoadingText">Loading...</h1>
         )}

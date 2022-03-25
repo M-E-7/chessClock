@@ -6,6 +6,7 @@ import { ReactComponent as CheckboxTrueSVG } from "../resources/icons/checkboxTr
 import { ReactComponent as CheckboxFalseSVG } from "../resources/icons/checkboxFalse.svg";
 import { ReactComponent as RadioTrueSVG } from "../resources/icons/radioTrue.svg";
 import { ReactComponent as RadioFalseSVG } from "../resources/icons/radioFalse.svg";
+import BackIconSVG from "../components/backIconSVG";
 
 const NewTimePrompt = (props) => {
   const { height, width } = useWindowDimensions();
@@ -199,7 +200,7 @@ const NewTimePrompt = (props) => {
         onSubmit={submitHandler}
         id="mainForm"
       >
-        <button
+        <BackIconSVG
           className="EditScreen__BackButton"
           onClick={props.handlers.editHandler}
         />

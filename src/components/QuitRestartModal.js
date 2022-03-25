@@ -1,6 +1,9 @@
 import React from "react";
 import "../style/QuitRestartModal.css";
 
+import { ReactComponent as YesIconSVG } from "../resources/icons/yesIcon.svg";
+import { ReactComponent as NoIconSVG } from "../resources/icons/noIcon.svg";
+
 const QuitPrompt = (props) => {
   console.log(props.dispatchGameState);
   return (
@@ -15,8 +18,7 @@ const QuitPrompt = (props) => {
           });
         }}
       >
-        <p className="QuitRestartModal__Text1">YES</p>
-        <p className="QuitRestartModal__Text2">YES</p>
+        <YesIconSVG className="QuitRestartModal__Icon" />
       </div>
       <div
         className="QuitRestartModal__NO"
@@ -26,8 +28,7 @@ const QuitPrompt = (props) => {
           });
         }}
       >
-        <p className="QuitRestartModal__Text1">NO</p>
-        <p className="QuitRestartModal__Text2">NO</p>
+        <NoIconSVG className="QuitRestartModal__Icon" />
       </div>
       {/* <div className="QuitRestartModal__TEXT">{props.children}</div> */}
     </div>

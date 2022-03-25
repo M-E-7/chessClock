@@ -69,10 +69,6 @@
 
   background-color: black;
 
-  background: url("../resources/icons/back_arrow.svg");
-  background-repeat: no-repeat;
-  background-size: stretch;
-
   cursor: pointer;
 }
 

@@ -153,11 +153,7 @@
   background-color: transparent;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   justify-self: center;
-  text-align: center;
   border: none;
 
   grid-row-start: 22;

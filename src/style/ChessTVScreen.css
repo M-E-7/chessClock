@@ -38,11 +38,7 @@
   aspect-ratio: 1/1;
   border: none;
 
-  background-color: black;
-
-  background: url("../resources/icons/back_arrow.svg");
-  background-repeat: no-repeat;
-  background-size: stretch;
+  background-color: transparent;
 
   cursor: pointer;
 }

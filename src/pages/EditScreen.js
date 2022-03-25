@@ -2,6 +2,8 @@ import React from "react";
 import TimeIterations from "../components/TimeIterations";
 import "../style/EditScreen.css";
 
+import BackIconSVG from "../components/backIconSVG";
+
 const EditScreen = (props) => {
   const selectHandler = () => {
     props.handlers.activeTimeHandler(props.currentActiveID);
@@ -13,7 +15,7 @@ const EditScreen = (props) => {
       <div className="Logo" />
 
       <div className="EditScreen__mainGridWrapper">
-        <button
+        <BackIconSVG
           className="EditScreen__BackButton"
           onClick={props.handlers.titleScreenHandler}
         />

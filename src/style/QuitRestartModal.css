@@ -125,3 +125,9 @@
   font-weight: bold;
   transform: rotate(-180deg);
 }
+
+.QuitRestartModal__Icon {
+  height: 70%;
+
+  aspect-ratio: 1/1;
+}
