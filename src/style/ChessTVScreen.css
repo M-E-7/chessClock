@@ -14,6 +14,8 @@
     #252525 66.67%,
     #333333 100%
   );
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .ChessTVScreen__InnerWrapper {

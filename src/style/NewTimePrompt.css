@@ -25,6 +25,8 @@ input[type="number"] {
     #252525 66.67%,
     #333333 100%
   );
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .NewTimePrompt__Wrapper * {
