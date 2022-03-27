@@ -316,17 +316,29 @@ const GameScreen = (props) => {
   /* JSX RETURN ---------------------- */
   /* JSX RETURN ---------------------- */
   /* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
+
+  const playerOneClickHandler = () => {
+    return gameState.playerActive === 2 || gameState.gameOver === 1
+      ? null
+      : (request(),
+        playClickSound(),
+        dispatchGameState({ type: "playerOneAction" }));
+  };
+
+  const playerTwoClickHandler = () => {
+    return gameState.playerActive === 1 || gameState.gameOver === 1
+      ? null
+      : (request(),
+        playClickSound(),
+        dispatchGameState({ type: "playerTwoAction" }));
+  };
+
   return (
     <div className="GameScreen__gameWrapper">
       <div
         className="GameScreen__playerOneWrapper"
-        onClick={() => {
-          return gameState.playerActive === 2 || gameState.gameOver === 1
-            ? null
-            : (request(),
-              playClickSound(),
-              dispatchGameState({ type: "playerOneAction" }));
-        }}
+        onTouchStart={playerOneClickHandler}
+        onClick={playerOneClickHandler}
       >
         <div
           style={gameState.activePlayerOneStyle}
@@ -347,15 +359,8 @@ const GameScreen = (props) => {
       </div>
       <div
         className="GameScreen__playerTwoWrapper"
-        onClick={() => {
-          if (gameState.playerActive === 1 || gameState.gameOver === 1) {
-            return null;
-          } else {
-            request();
-            playClickSound();
-            dispatchGameState({ type: "playerTwoAction" });
-          }
-        }}
+        onTouchStart={playerTwoClickHandler}
+        onClick={playerTwoClickHandler}
       >
         <div
           style={gameState.activePlayerTwoStyle}
