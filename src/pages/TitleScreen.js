@@ -8,6 +8,7 @@ import ChessTVScreen from "./ChessTVScreen";
 import { useHistory, Route } from "react-router-dom";
 
 import { ReactComponent as WatchChessTVSVG } from "../resources/icons/watch-chess-tv.svg";
+import LichessAPIScreen from "./LichessAPIScreen";
 
 const TitleScreen = () => {
   let history = useHistory();
@@ -87,6 +88,11 @@ const TitleScreen = () => {
     chessTVHandler: () => {
       setCurrentPage("ChessTVScreen");
       history.push("/chessTV");
+    },
+
+    lichessAPIHandler: () => {
+      setCurrentPage("LichessAPIScreen");
+      history.push("/lichessAPI");
     },
 
     activeTimeHandler: (id) => {
@@ -235,6 +241,12 @@ const TitleScreen = () => {
             >
               EDIT
             </button>
+            <button
+              className="TitleScreen__lichessAPIButton"
+              onClick={mainStateHandlers.lichessAPIHandler}
+            >
+              ?
+            </button>
           </div>
         </div>
       </Route>
@@ -262,6 +274,9 @@ const TitleScreen = () => {
           availableTimes={availableTimes}
           currentActiveID={currentActiveID}
         />
+      </Route>
+      <Route exact path="/lichessAPI">
+        <LichessAPIScreen />
       </Route>
     </React.Fragment>
   );

@@ -312,11 +312,6 @@ const GameScreen = (props) => {
     }, timeoutDelay());
   };
 
-  /* JSX RETURN ---------------------- */
-  /* JSX RETURN ---------------------- */
-  /* JSX RETURN ---------------------- */
-  /* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
-
   const playerOneClickHandler = () => {
     return gameState.playerActive === 2 || gameState.gameOver === 1
       ? null
@@ -332,6 +327,11 @@ const GameScreen = (props) => {
         playClickSound(),
         dispatchGameState({ type: "playerTwoAction" }));
   };
+
+  /* JSX RETURN ---------------------- */
+  /* JSX RETURN ---------------------- */
+  /* JSX RETURN ---------------------- */
+  /* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
 
   return (
     <div className="GameScreen__gameWrapper">
