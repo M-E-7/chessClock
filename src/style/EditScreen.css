@@ -69,7 +69,7 @@
   aspect-ratio: 1/1;
   border: none;
 
-  background-color: black;
+  background-color: transparent;
 
   cursor: pointer;
 }
