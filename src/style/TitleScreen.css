@@ -193,28 +193,6 @@
   font-family: montserrat;
 }
 
-.TitleScreen__lichessAPIButton {
-  padding: 0;
-  margin: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 0%;
-  min-width: 0%;
-  max-height: 100%;
-  max-width: 100%;
-
-  grid-row-start: 24;
-  grid-row-end: 24;
-  grid-column-start: 12;
-  grid-column-end: 12;
-
-  width: 50%;
-  height: 50%;
-}
-
 .Logo {
   position: absolute;
   top: 1%;
