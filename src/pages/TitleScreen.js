@@ -276,7 +276,7 @@ const TitleScreen = () => {
         />
       </Route>
       <Route exact path="/lichessAPI">
-        <LichessAPIScreen />
+        <LichessAPIScreen handlers={mainStateHandlers} />
       </Route>
     </React.Fragment>
   );
