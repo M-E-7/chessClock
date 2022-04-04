@@ -163,6 +163,12 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  .EditScreen__availableTimes {
+    scrollbar-width: none;
+  }
+}
+
 .TimeIterations__timeOption {
   display: flex;
   flex-direction: column;
