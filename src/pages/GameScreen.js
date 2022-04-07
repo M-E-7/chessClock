@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 
 import QuitRestartModal from "../components/QuitRestartModal";
 import DelayTimer from "../components/DelayTimer";

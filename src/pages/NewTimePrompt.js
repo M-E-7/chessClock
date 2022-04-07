@@ -78,10 +78,6 @@ const NewTimePrompt = (props) => {
     );
   };
 
-  const tableNameInputHandler = (e) => {
-    setTableName(e.target.value);
-  };
-
   const setHoursHandler = (e) => {
     setErrorState(false);
     setHours(e.target.value);
@@ -115,11 +111,6 @@ const NewTimePrompt = (props) => {
   const setIncrementHandler = (e) => {
     setErrorState(false);
     setIncrement(e.target.value);
-  };
-
-  const setIncrementHandler2 = (e) => {
-    setErrorState(false);
-    setIncrement2(e.target.value);
   };
 
   const setAsymmetryHandler = (e) => {

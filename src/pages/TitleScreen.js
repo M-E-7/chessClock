@@ -61,37 +61,29 @@ const TitleScreen = () => {
     availableTimes[availableTimes.map((e) => e.id).indexOf(currentActiveID)]
   );
 
-  const [currentPage, setCurrentPage] = useState("TitleScreen");
-
   const mainStateHandlers = {
     startGameHandler: () => {
       mainStateHandlers.activeTimeHandler(currentActiveID);
-      setCurrentPage("GameScreen");
       history.push("/game");
     },
 
     editHandler: () => {
-      setCurrentPage("EditScreen");
       history.push("/edit");
     },
 
     newTimeHandler: () => {
-      setCurrentPage("NewTimeScreen");
       history.push("/new");
     },
 
     titleScreenHandler: () => {
-      setCurrentPage("TitleScreen");
       history.push("/");
     },
 
     chessTVHandler: () => {
-      setCurrentPage("ChessTVScreen");
       history.push("/chessTV");
     },
 
     lichessAPIHandler: () => {
-      setCurrentPage("LichessAPIScreen");
       history.push("/lichessAPI");
     },
 

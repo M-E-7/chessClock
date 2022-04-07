@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../style/LichessAPIScreen.css";
 import BackIconSVG from "../components/backIconSVG";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -41,7 +41,7 @@ const LichessAPIScreen = (props) => {
         setUserInfo(data);
         setLoadingComplete(true);
       }
-      if (data.disabled == true) {
+      if (data.disabled === true) {
         setError(true);
         setTypeOfError("This account is disabled!");
       }

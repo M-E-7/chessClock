@@ -17,6 +17,7 @@ const ChessTV = (props) => {
           <h1 className="ChessTVScreen__LoadingText">Loading...</h1>
         )}
         <iframe
+          title="chessTV"
           src={source}
           style={{ width: "100%", maxWidth: "400px", height: "444px" }}
           onLoad={() => {
