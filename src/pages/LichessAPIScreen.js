@@ -58,6 +58,16 @@ const LichessAPIScreen = (props) => {
     }
   };
 
+  const totalTimeCalculator = (timeValueSeconds) => {
+    return [3600, 60]
+      .reduceRight(
+        (p, b) => (r) => [Math.floor(r / b)].concat(p(r % b)),
+        (r) => [r]
+      )(timeValueSeconds)
+      .map((a) => a.toString().padStart(2, "0"))
+      .join(":");
+  };
+
   return (
     <div
       className="LichessAPIScreen__titleWrapper"
@@ -93,6 +103,9 @@ const LichessAPIScreen = (props) => {
             <p>Blitz - {userInfo.perfs.blitz.rating}</p>
             <p>Rapid - {userInfo.perfs.rapid.rating}</p>
             <p>Bullet - {userInfo.perfs.bullet.rating}</p>
+            <p>
+              Total time played: {totalTimeCalculator(userInfo.playTime.total)}
+            </p>
           </div>
         )}
 
